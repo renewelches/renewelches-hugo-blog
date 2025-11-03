@@ -1,0 +1,70 @@
+<div class="faq-container">
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleAnswer(this)">
+      <h4>{{ .Get "question" }}</h4>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      {{ .Inner | markdownify }}
+    </div>
+  </div>
+</div>
+
+<style>
+.faq-container {
+  margin-bottom: 1rem;
+  border: 1px solid #e1e5e9;
+  border-radius: 0.375rem;
+}
+
+.faq-question {
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 0.375rem;
+}
+
+.faq-question:hover {
+  background-color: #e9ecef;
+}
+
+.faq-question h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  padding: 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer.active {
+  padding: 1rem;
+  max-height: 1000px;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+</style>
+
+<script>
+function toggleAnswer(element) {
+  const faqItem = element.parentElement;
+  const answer = element.nextElementSibling;
+  
+  faqItem.classList.toggle('active');
+  answer.classList.toggle('active');
+}
+</script>
