@@ -1,26 +1,68 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://renewelches.com/'
 languageCode = 'en-us'
 title = 'Rene Welches Blog'
 
 [module]
 [[module.imports]]
-  path = "github.com/zhaohuabing/hugo-theme-cleanwhite"
+  path = 'github.com/zhaohuabing/hugo-theme-cleanwhite'
 
+# Site Parameters
 [params]
-  header_image = "img/home-bg.jpg"
-  description = "A personal blog about HomeLab, AI, and technology"
+  header_image = "img/skyscraper.jpg"
+  description = "René's Blog and Notebook about homelab, AI, and technology"
+  omit_categories = false
+  SEOTitle = "Rene Welches' Blog"
+  slogan = ""
+  upstreamAttribution = true
 
-[[menu.main]]
-  name = "HomeLab"
-  url = "/homelab/"
-  weight = 1
+  # SEO
+  keywords = ["Rene Welches' Blog", "blog", "homelab", "AI", "technology", "self-hosting"]
 
-[[menu.main]]
-  name = "AI"
-  url = "/ai/"
-  weight = 2
+  # Social
+  # twitter = "your_twitter"
+  # github = "your_github"
+  # linkedin = "your_linkedin"
 
-[[menu.main]]
-  name = "About"
-  url = "/about/"
-  weight = 3
+# Menu Configuration
+[menu]
+
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Homelab"
+    url = "/homelab/"
+    weight = 3
+
+  [[menu.main]]
+    name = "AI"
+    url = "/ai/"
+    weight = 4
+
+  [[menu.main]]
+    name = "Archive"
+    url = "/post/"
+    weight = 5
+
+  [[menu.main]]
+    name = "Hugo"
+    url = "/hugo/"
+    weight = 6
+
+  # Taxonomy
+  [taxonomies]
+    tag = "tags"
+    category = "categories"
+    archive = "archives"
+
+
+  [[params.additional_menus]]
+    title = "ABOUT"
+    href = "/about/"
