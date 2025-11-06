@@ -1,111 +1,102 @@
-# Renewelches Hugo Blog
+# Rene Welches Hugo Blog
 
-A Hugo blog using the Clean White theme, configured with Hugo Modules.
+A personal blog built with Hugo, featuring content about HomeLab, AI, and technology.
 
-## Theme
+## Project Setup
 
-This blog uses the [Clean White theme](https://themes.gohugo.io/themes/hugo-theme-cleanwhite/) by Huabing Zhao.
+This Hugo site uses the [cleanwhite theme](https://github.com/zhaohuabing/hugo-theme-cleanwhite) as a Hugo module (not a Git submodule).
 
-## Prerequisites
+### Prerequisites
 
-- [Hugo Extended](https://gohugo.io/installation/) (v0.112.0 or later)
-- [Go](https://golang.org/dl/) (v1.20 or later) - required for Hugo Modules
+- [Hugo](https://gohugo.io/installation/) (extended version recommended)
+- [Go](https://golang.org/dl/) 1.19 or later
 
-## Setup
+### Installation
 
-1. Clone this repository:
-   ```bash
-   git clone <your-repo-url>
-   cd renewelches-hugo-blog
-   ```
+1. Clone the repository:
+```bash
+git clone https://github.com/renewelches/renewelches-hugo-blog-2.git
+cd renewelches-hugo-blog-2
+```
 
-2. Download the theme and dependencies:
-   ```bash
-   hugo mod get -u
-   hugo mod tidy
-   ```
+2. Download the Hugo theme module:
+```bash
+hugo mod get
+```
 
-3. Run the development server:
-   ```bash
-   hugo server -D
-   ```
+3. Start the development server:
+```bash
+hugo server -D
+```
 
-4. Visit `http://localhost:1313` in your browser
+The site will be available at `http://localhost:1313/`
 
-## Project Structure
+### Project Structure
 
 ```
-renewelches-hugo-blog/
+.
 ├── archetypes/          # Content templates
-├── content/             # Blog posts and pages
-│   ├── about/          # About section
-│   ├── homelab/        # Homelab section
-│   └── ai/             # AI section
+├── content/             # Markdown content files
+├── data/                # Data files (JSON, YAML, TOML)
 ├── layouts/             # Custom layout overrides
-│   └── shortcodes/     # Custom shortcodes
-├── static/              # Static assets (images, css, js)
-├── hugo.toml           # Site configuration
-├── go.mod              # Hugo modules configuration
-└── README.md           # This file
+├── static/              # Static files (images, CSS, JS)
+├── hugo.toml            # Hugo configuration file
+├── go.mod               # Go module file
+└── go.sum               # Go module checksums
 ```
 
-## Creating Content
+### Menu Structure
 
-### New Blog Post
+The site includes three main menu items:
+
+- **HomeLab**: Content about home server and lab projects
+- **AI**: Artificial intelligence related content
+- **About**: Information about the author
+
+### Creating Content
+
+Create new posts for each section:
 
 ```bash
-hugo new content/posts/my-post-title.md
+# HomeLab content
+hugo new content/homelab/my-post.md
+
+# AI content
+hugo new content/ai/my-post.md
+
+# About page
+hugo new content/about/_index.md
 ```
 
-### New Page
+### Building for Production
+
+To build the static site for deployment:
 
 ```bash
-hugo new content/about.md
+hugo
 ```
 
-## Customization
+The generated site will be in the `public/` directory.
 
-### Layouts
+### Theme Management
 
-Custom layouts and overrides go in the `layouts/` folder. These will override the theme's default layouts.
-
-### Shortcodes
-
-Custom shortcodes for reusable content snippets go in `layouts/shortcodes/`.
-
-Example usage in markdown:
-```markdown
-{{< shortcode-name >}}
-```
-
-## Building for Production
+This project uses Hugo Modules for theme management. To update the theme:
 
 ```bash
-hugo --minify
-```
-
-The built site will be in the `public/` directory.
-
-## Deployment
-
-Add your deployment instructions here based on your hosting platform (Netlify, Vercel, GitHub Pages, etc.).
-
-## Hugo Modules
-
-This site uses Hugo Modules instead of Git submodules for theme management. The theme is imported in `hugo.toml`:
-
-```toml
-[module]
-[[module.imports]]
-  path = 'github.com/zhaohuabing/hugo-theme-cleanwhite'
-```
-
-To update the theme:
-```bash
-hugo mod get -u
+hugo mod get -u github.com/zhaohuabing/hugo-theme-cleanwhite
 hugo mod tidy
 ```
 
+### Configuration
+
+Main configuration is in `hugo.toml`. Key settings include:
+
+- **baseURL**: Your site's base URL
+- **title**: Site title
+- **languageCode**: Default language
+- **module.imports**: Theme module configuration
+- **menu.main**: Top navigation menu items
+
 ## License
 
-Your license here
+This project setup is provided as-is. Please refer to the theme's license for theme-specific terms.

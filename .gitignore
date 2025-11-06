@@ -1,0 +1,16 @@
+# Hugo build artifacts
+.hugo_build.lock
+public/
+
+# macOS
+.DS_Store
+
+# Editor directories and files
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Hugo cache
+resources/_gen/
