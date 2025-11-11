@@ -150,6 +150,24 @@ One unique aspect of the Clean White theme is how it handles navigation menus. U
 ### Category-Based Menus
 
 By default, Clean White automatically generates menu items based on your blog post categories. If you add `categories: [Hugo]` to your post's front matter, "Hugo" will appear in the navigation.
+Example:
+
+```
+---
+layout: post
+title: "Setting Up a Hugo Blog with the Clean White Theme"
+subtitle: "A step-by-step guide to creating a Hugo blog from scratch"
+date: 2025-11-06 11:00:00
+author: "Rene Welches"
+publishDate: 2025-11-06 11:00:00
+tags:
+  - Hugo
+  - clean-white-theme
+  - Tutorial
+categories: [Hugo]
+URL: "/2025/11/06/setting-up-clean-white-theme"
+---
+```
 
 ### Custom Menu Items
 
@@ -174,14 +192,3 @@ For additional menu items (like About, Contact, etc.), the Clean White theme use
     url = "/about/"
     weight = 1
 ```
-
-## Next Steps
-
-Now that your blog is set up, you can:
-
-- Customize your `hugo.toml` with your personal information
-- Add more blog posts
-- Customize the theme's colors and styling
-- Set up deployment to Netlify or GitHub Pages
-
-Happy blogging!
