@@ -1,6 +1,6 @@
-baseURL = 'https://renewelches.com/'
+baseURL = 'https://blog.renewelches.com/'
 languageCode = 'en-us'
-title = 'René Welches'
+title = 'René  Welches'
 
 [module]
 [[module.imports]]
