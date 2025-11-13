@@ -1,6 +1,6 @@
 baseURL = 'https://renewelches.com/'
 languageCode = 'en-us'
-title = 'Rene Welches Blog'
+title = 'René Welches'
 
 [module]
 [[module.imports]]
@@ -8,7 +8,7 @@ title = 'Rene Welches Blog'
 
 # Site Parameters
 [params]
-  header_image = "img/skyscraper.jpg"
+  header_image = "img/bike.jpg"
   description = "René's Blog and Notebook about homelab, AI, and technology"
   omit_categories = false
   SEOTitle = "Rene Welches' Blog"

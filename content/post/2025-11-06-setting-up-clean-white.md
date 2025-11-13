@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Setting Up a Hugo Blog with the Clean White Theme"
+title: "Part 1 - Setting Up a Hugo Blog with the Clean White Theme"
 subtitle: "A step-by-step guide to creating a Hugo blog from scratch to Deployment"
 date: 2025-11-06 11:00:00
 author: "Rene Welches"
-image: "/img/2018-05-06-cryptocurrency_week1/bitcoin_header.jpg"
+image: "/img/red-hook-crit.jpg"
 publishDate: 2025-11-06 11:00:00
 tags:
   - Hugo

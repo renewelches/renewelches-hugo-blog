@@ -5,10 +5,10 @@ subtitle: "Using Black, isort, and Mypy for cleaner Python code"
 date: 2025-11-11
 author: "Rene Welches"
 URL: "/2025/11/11/vscode-python-formatter/"
-image: ""
+tags:
+  - VS Code
+  - python
 ---
-
-> formatting code in vs code is part of python learning journey
 
 # Setting Up Python Formatting in VS Code with Black and isort
 
