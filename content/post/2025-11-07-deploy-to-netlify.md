@@ -302,8 +302,9 @@ Want to use your own domain instead of `*.netlify.app`?
 
 1. Go to **Site settings** → **Domain management**
 2. Click **"Add custom domain"**
-3. Enter your domain name (e.g., `yourblog.com`)
-4. Follow Netlify's instructions to update your DNS settings at your domain registrar
+3. Enter your domain name (in my case, `blog.renewelches.com`)
+4. Follow Netlify's instructions to setup you DNS.
+   In my case I had to create a TXT record for the subdomain verfication. And then add CNAME record which mapped `blog.renewelches.com` to the netlify DNS `renewelches-hugo-blog.netlify.app`.
 
 Netlify will automatically:
 
@@ -317,8 +318,8 @@ If you want to ensure all traffic uses your custom domain, add this to your `net
 
 ```toml
 [[redirects]]
-  from = "https://your-site-name.netlify.app/*"
-  to = "https://yourblog.com/:splat"
+  from = "https://renewelches-hugo-blog.netlify.app*"
+  to = "https://blog.renewelches.com/:splat"
   status = 301
   force = true
 ```
