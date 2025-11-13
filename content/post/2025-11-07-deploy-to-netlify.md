@@ -312,20 +312,6 @@ Netlify will automatically:
 - Enable HTTPS for your custom domain
 - Redirect HTTP to HTTPS
 
-### Optional: Redirect Netlify Subdomain to Custom Domain
-
-If you want to ensure all traffic uses your custom domain, add this to your `netlify.toml`:
-
-```toml
-[[redirects]]
-  from = "https://renewelches-hugo-blog.netlify.app*"
-  to = "https://blog.renewelches.com/:splat"
-  status = 301
-  force = true
-```
-
-This creates a permanent redirect (301) from your Netlify subdomain to your custom domain. The `:splat` preserves the URL path (e.g., `/about/` stays `/about/`), which is important for SEO.
-
 ## Deploy Previews for Pull Requests
 
 One of Netlify's most powerful features is automatic deploy previews:

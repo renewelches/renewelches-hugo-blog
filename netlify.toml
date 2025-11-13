@@ -46,8 +46,3 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[redirects]]
-  from = "https://renewelches-hugo-blog.netlify.app*"
-  to = "https://blog.renewelches.com/:splat"
-  status = 301
-  force = true
