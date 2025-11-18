@@ -1,4 +1,4 @@
-baseURL = 'https://blog.renewelches.com/'
+baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'René  Welches'
 
