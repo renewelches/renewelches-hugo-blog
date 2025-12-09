@@ -11,6 +11,7 @@ public/
 *.swp
 *.swo
 *~
+.claude
 
 # Hugo cache
 resources/_gen/
