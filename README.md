@@ -14,17 +14,20 @@ This Hugo site uses the [cleanwhite theme](https://github.com/zhaohuabing/hugo-t
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/renewelches/renewelches-hugo-blog-2.git
 cd renewelches-hugo-blog-2
 ```
 
 2. Download the Hugo theme module:
+
 ```bash
 hugo mod get
 ```
 
 3. Start the development server:
+
 ```bash
 hugo server -D
 ```
@@ -49,23 +52,13 @@ The site will be available at `http://localhost:1313/`
 
 The site includes three main menu items:
 
-- **HomeLab**: Content about home server and lab projects
-- **AI**: Artificial intelligence related content
-- **About**: Information about the author
+- **Categories**: Defined in the frontmatter of a post e.g. `categories: [Homelab]`
+- **About**: Information about the author defined in the hugo.toml
 
-### Creating Content
-
-Create new posts for each section:
-
-```bash
-# HomeLab content
-hugo new content/homelab/my-post.md
-
-# AI content
-hugo new content/ai/my-post.md
-
-# About page
-hugo new content/about/_index.md
+```
+[[params.additional_menus]]
+    title = "ABOUT"
+    href = "/about/"
 ```
 
 ### Building for Production
@@ -86,16 +79,6 @@ This project uses Hugo Modules for theme management. To update the theme:
 hugo mod get -u github.com/zhaohuabing/hugo-theme-cleanwhite
 hugo mod tidy
 ```
-
-### Configuration
-
-Main configuration is in `hugo.toml`. Key settings include:
-
-- **baseURL**: Your site's base URL
-- **title**: Site title
-- **languageCode**: Default language
-- **module.imports**: Theme module configuration
-- **menu.main**: Top navigation menu items
 
 ## License
 

@@ -1,4 +1,4 @@
-baseURL = 'https://blog.renewelches.com/'
+baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'René  Welches'
 
@@ -22,39 +22,6 @@ title = 'René  Welches'
   # twitter = "your_twitter"
   # github = "your_github"
   # linkedin = "your_linkedin"
-
-# Menu Configuration
-[menu]
-
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
-
-  [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 2
-
-  [[menu.main]]
-    name = "Homelab"
-    url = "/homelab/"
-    weight = 3
-
-  [[menu.main]]
-    name = "AI"
-    url = "/ai/"
-    weight = 4
-
-  [[menu.main]]
-    name = "Archive"
-    url = "/post/"
-    weight = 5
-
-  [[menu.main]]
-    name = "Hugo"
-    url = "/hugo/"
-    weight = 6
 
   # Taxonomy
   [taxonomies]
