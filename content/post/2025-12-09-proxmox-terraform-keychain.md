@@ -78,10 +78,10 @@ security add-generic-password \
 ```
 
 **Parameter breakdown:**
--`-s proxmox-terraform`: The **service name** (identifier for this credential)
--`-a proxmox-terraform-user`: The **account name** (username/identifier)
--`-D API Token`: Specify kind (default is "application password"). Since we are using a token we are setting API Token
--`-w`: Prompts you to enter the password interactively (the API token)
+- `-s proxmox-terraform`: The **service name** (identifier for this credential)
+- `-a proxmox-terraform-user`: The **account name** (username/identifier)
+- `-D API Token`: Specify kind (default is "application password"). Since we are using a token we are setting API Token
+- git `-w`: Prompts you to enter the password interactively (the API token)
 
 After running this command, you'll be prompted to enter your Proxmox API token. The token will be securely stored in your **Defualt** Keychain. In my case it is the `login` keychain. It seems there is no way to access the iCloud key chain with the security command and sync the token between Macs.
 
@@ -122,7 +122,7 @@ Now comes the magic – automatically populating Terraform variables with creden
 
 Create or update your `variables.tf` file:
 
-```json
+```hcl
 variable "proxmox_api_url" {
   description = "Proxmox API URL (e.g., https://proxmox.example.com:8006/api2/json)"
   type        = string
@@ -185,6 +185,7 @@ terraform "$@"
 ```
 
 Make it executable:
+
 ```bash
 chmod +x terraform-proxmox.sh
 ```
