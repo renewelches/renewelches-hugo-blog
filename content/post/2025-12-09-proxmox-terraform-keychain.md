@@ -85,7 +85,7 @@ security add-generic-password \
 
 After running this command, you'll be prompted to enter your Proxmox API token. The token will be securely stored in your **Defualt** Keychain. In my case it is the `login` keychain. It seems there is no way to access the iCloud key chain with the security command and sync the token between Macs.
 
-Make sure the api token use the format `<user-id>!<token-id>=<api token>`
+Make sure the api token use the format `<user id>!<token id>=<api token>`
 
 **Example with the password inline** (less secure, but useful for scripting):
 ```bash
@@ -239,7 +239,6 @@ TF_VAR_proxmox_api_token=$(security find-generic-password \
 2. **Use sensitive variables**: Mark password, api token or ticket xvariables as `sensitive = true` in Terraform
 3. **Rotate tokens regularly**: Update your Keychain entries periodically
 4. **Limit token permissions**: Create API tokens with minimal required permissions in Proxmox
-5. **Lock your Mac**: Keychain requires your Mac to be unlocked to access credentials
 
 ## Updating Credentials
 
