@@ -4,7 +4,7 @@ title: "Starting My Homelab Journey"
 subtitle: "Building a Proxmox-based homelab with GMKtec NucBox M5 Ultra and setting up SSL certificates"
 date: 2025-12-08 11:00:00
 author: "Rene Welches"
-image: ""
+image: "/img/red-hook-crit.jpg"
 publishDate: 2025-12-08 11:00:00
 tags:
   - Homelab

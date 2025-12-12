@@ -4,7 +4,7 @@ title: "Secure Home Network Access with Twingate"
 subtitle: "Alternative setup to Pi-Hole and Pi-VPN with Twingate, Home Assistant and AdGuard Home"
 date: 2025-11-13 11:00:00
 author: "Rene Welches"
-image: ""
+image: "/img/red-hook-crit.jpg"
 publishDate: 2025-11-13 11:00:00
 tags:
   - Homelab
