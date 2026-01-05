@@ -4,7 +4,7 @@ title: "Part 1 - Setting Up a Hugo Blog with the Clean White Theme"
 subtitle: "A step-by-step guide to creating a Hugo blog from scratch to Deployment"
 date: 2025-11-06 11:00:00
 author: "Rene Welches"
-image: "/img/red-hook-crit.jpg"
+image: "/img/red-hook-crit-1.jpg"
 publishDate: 2025-11-06 11:00:00
 tags:
   - Hugo

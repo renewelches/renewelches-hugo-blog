@@ -4,7 +4,7 @@ title: "Part 3 - Cost-Effective Blog Previews with GitHub Pages and Actions"
 subtitle: "How I save Netlify credits by using GitHub Pages for preview deployments"
 date: 2026-01-05 10:00:00
 author: "Rene Welches"
-image: "/img/red-hook-crit.jpg"
+image: "/img/red-hook-crit-1.jpg"
 publishDate: 2026-01-05 10:00:00
 tags:
   - Hugo

@@ -4,7 +4,7 @@ title: "Part 2 - Deploying Your Hugo Blog to Netlify"
 subtitle: "A complete guide to publishing your Hugo site from GitHub to Netlify"
 date: 2025-11-07 11:00:00
 author: "Rene Welches"
-image: "/img/red-hook-crit.jpg"
+image: "/img/red-hook-crit-1.jpg"
 publishDate: 2025-11-07 11:00:00
 tags:
   - Hugo
