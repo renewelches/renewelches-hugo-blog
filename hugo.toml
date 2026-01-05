@@ -14,22 +14,23 @@ title = 'René  Welches'
   SEOTitle = "Rene Welches' Blog"
   slogan = "TECH NOTES TO MYSELF"
   upstreamAttribution = true
-
   # SEO
-  keywords = ["Rene Welches' Blog", "blog", "homelab", "AI", "technology", "self-hosting"]
-
+  keyword  = ["Rene Welches' Blog", "blog", "homelab", "AI", "technology", "self-hosting"]
+  
   # Social
-  # twitter = "your_twitter"
-  # github = "your_github"
-  # linkedin = "your_linkedin"
 
-  # Taxonomy
-  [taxonomies]
-    tag = "tags"
-    category = "categories"
-    archive = "archives"
-
+  [params.social]
+    rss = true
+    github = "https://github.com/renewelches"
+    linkedin = "https://www.linkedin.com/in/rené-welches-6512113/"
+    #email = "rene.welches@gmail.com"
 
   [[params.additional_menus]]
     title = "ABOUT"
     href = "/about/"
+
+# Taxonomy
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"
