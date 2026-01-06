@@ -12,7 +12,7 @@ tags:
   - SSL
   - Mini PC
   - Home Assistant
-categories: [Homelab]
+categories: [Homelab, Proxmox]
 URL: "/2025/12/08/homelab-beginning"
 ---
 

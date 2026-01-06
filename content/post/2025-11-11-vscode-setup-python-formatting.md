@@ -8,6 +8,7 @@ URL: "/2025/11/11/vscode-python-formatter/"
 tags:
   - VS Code
   - python
+categories: [Development]
 ---
 
 # Setting Up Python Formatting in VS Code with Black and isort

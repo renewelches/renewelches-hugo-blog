@@ -12,7 +12,7 @@ tags:
   - Terraform
   - Security
   - macOS
-categories: [Homelab]
+categories: [Homelab, Proxmox]
 URL: "/2025/12/09/proxmox-terraform-keychain"
 ---
 
