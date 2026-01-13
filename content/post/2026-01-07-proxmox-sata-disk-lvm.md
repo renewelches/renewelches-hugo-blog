@@ -2,10 +2,10 @@
 layout: post
 title: "Adding a Disk to Proxmox node: LVM Integration Guide"
 subtitle: "Extend your Proxmox storage with LVM thin provisioning"
-date: 2026-01-06 11:00:00
+date: 2026-01-08 11:00:00
 author: "Rene Welches"
 image: "/img/red-hook-crit.jpg"
-publishDate: 2026-01-07 18:00:00
+publishDate: 2026-01-08 18:00:00
 tags:
   - Proxmox
   - LVM
@@ -13,7 +13,7 @@ tags:
   - Tutorial
   - Linux
 categories: [homelab, Proxmox]
-URL: "/2026/01/07/proxmox-add-disk-lvm"
+URL: "/2026/01/08/proxmox-add-disk-lvm"
 ---
 
 ## Overview
