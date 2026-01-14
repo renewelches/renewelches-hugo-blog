@@ -4,6 +4,7 @@ title: "Secure Home Network Access with Twingate"
 subtitle: "Alternative setup to Pi-Hole and Pi-VPN with Twingate, Home Assistant and AdGuard Home"
 date: 2025-11-13 11:00:00
 author: "Rene Welches"
+description: "Modern zero-trust VPN setup using Twingate for secure home network access, with AdGuard Home for local DNS resolution. No port forwarding or DDNS required - a simpler alternative to Pi-Hole and PiVPN."
 image: "/img/red-hook-crit.jpg"
 publishDate: 2025-11-13 11:00:00
 tags:

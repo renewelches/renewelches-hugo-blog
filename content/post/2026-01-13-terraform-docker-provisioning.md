@@ -4,6 +4,7 @@ title: "Automating Docker Container Deployment on Proxmox with Terraform"
 subtitle: "Using SSH Agent authentication to provision Docker containers in LXC containers - and why Ansible is next"
 date: 2026-01-13 14:00:00
 author: "Rene Welches"
+description: "Learn how to use Terraform with SSH agent authentication to automatically deploy Docker containers in Proxmox LXC environments. Includes practical examples and discusses why Ansible is better suited for configuration management."
 image: "/img/red-hook-crit.jpg"
 publishDate: 2026-01-13 14:00:00
 tags:

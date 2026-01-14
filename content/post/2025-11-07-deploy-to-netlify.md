@@ -4,6 +4,7 @@ title: "Part 2 - Deploying Your Hugo Blog to Netlify"
 subtitle: "A complete guide to publishing your Hugo site from GitHub to Netlify"
 date: 2025-11-07 11:00:00
 author: "Rene Welches"
+description: "Complete guide to deploying Hugo sites on Netlify with automatic GitHub deployments. Includes detailed netlify.toml configuration, security headers, cache optimization, and troubleshooting common build issues."
 image: "/img/red-hook-crit-1.jpg"
 publishDate: 2025-11-07 11:00:00
 tags:
@@ -15,7 +16,7 @@ categories: [Hugo]
 URL: "/2025/11/07/deploy-to-netlify"
 ---
 
-After building your Hugo blog locally, the next step is getting it online for the world to see. Netlify makes this process incredibly smooth with automatic deployments from GitHub. In this guide, I'll walk you through deploying your Hugo site to Netlify, including a crucial step: creating the `netlify.toml` configuration file.
+After building your Hugo blog locally, the next step is getting it online for the world to see. Netlify makes this process incredibly smooth with automatic deployments from GitHub. In this guide, I'll walk you through deploying your Hugo site to Netlify, including a crucial step: creating the `netlify.toml` configuration file. And the best part, it is for free.
 
 ## Why Netlify?
 

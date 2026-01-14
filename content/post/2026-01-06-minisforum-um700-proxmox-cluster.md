@@ -4,6 +4,7 @@ title: "Expanding My Proxmox Cluster: Minisforum UM700 for $69"
 subtitle: "Adding a refurbished mini PC to my homelab cluster"
 date: 2026-01-06 14:00:00
 author: "Rene Welches"
+description: "A $75 refurbished Minisforum UM700 (Ryzen 7 3750H) makes a perfect second node for a Proxmox cluster. Step-by-step guide on creating a cluster, joining nodes, and understanding quorum with practical command references."
 image: "/img/red-hook-crit.jpg"
 publishDate: 2026-01-06 14:00:00
 tags:

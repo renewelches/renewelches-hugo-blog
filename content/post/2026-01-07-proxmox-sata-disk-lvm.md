@@ -4,6 +4,7 @@ title: "Adding a Disk to Proxmox node: LVM Integration Guide"
 subtitle: "Extend your Proxmox storage with LVM thin provisioning"
 date: 2026-01-08 11:00:00
 author: "Rene Welches"
+description: "Complete guide to adding a disk to a Proxmox node with existing storage. Learn how to integrate the disk into the LVM 'pve' volume group and extend the thin pool for transparent storage expansion."
 image: "/img/red-hook-crit.jpg"
 publishDate: 2026-01-08 18:00:00
 tags:

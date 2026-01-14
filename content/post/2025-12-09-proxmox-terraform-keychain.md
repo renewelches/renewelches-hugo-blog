@@ -4,6 +4,7 @@ title: "Securing Proxmox API Tokens with Apple Keychain Access for Terraform"
 subtitle: "Store and retrieve Proxmox credentials securely using macOS Keychain instead of plain text files"
 date: 2025-12-09 14:00:00
 author: "Rene Welches"
+description: "Securely manage Proxmox API tokens for Terraform using macOS Keychain Access. Eliminates plain text credential files and integrates seamlessly with automated Terraform workflows."
 image: "/img/red-hook-crit.jpg"
 publishDate: 2025-12-09 14:00:00
 tags:
