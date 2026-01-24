@@ -17,7 +17,6 @@ categories: [Homelab, Proxmox]
 URL: "/2025/12/08/homelab-beginning"
 ---
 
-
 ## Introduction
 
 In the beginning there were two 16 GB DDR4 RAM sticks and a 1 TB M.2 SSD that were gathering dust. After researching mini PCs, I decided to purchase the [GMKtec NucBox M5 Ultra](https://www.gmktec.com/products/gmktec-nucbox-m5-ultra-amd-ryzen-7-7730u-mini-pc?srsltid=AfmBOoofnRD7PvufgSUlAt7I-XNUAx13LO7M5K4o86Fpw_c9ivj-AA6v) as a bare-bones system. The AMD Ryzen 7 7730U processor provides plenty of power for virtualization, and the compact form factor makes it perfect for a home lab setup. I got it on Black Friday sale for $255.89. Surprisingly, there were no import taxes added to the $255.89. The PC arrived from China after about two weeks.
@@ -31,7 +30,7 @@ In the beginning there were two 16 GB DDR4 RAM sticks and a 1 TB M.2 SSD that we
 
 ## Installing Proxmox VE
 
-With the hardware assembled, the next step was to install [Proxmox Virtual Environment (VE)](https://www.proxmox.com/en/proxmox-virtual-environment/overview). 
+With the hardware assembled, the next step was to install [Proxmox Virtual Environment (VE)](https://www.proxmox.com/en/proxmox-virtual-environment/overview).
 
 The installation was straightforward:
 
@@ -41,6 +40,7 @@ The installation was straightforward:
 4. Followed the installation wizard
 
 Within minutes, I had a fully functional hypervisor ready to host virtual machines and containers.
+Update: After booting I recommend to run the [PVE Post Install](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install) community script. It allows you to disbale the Enterprise repo enable the non-subscription repos when you are on non subscription version.
 
 ## Setting Up SSL Certificates
 
@@ -52,7 +52,6 @@ The setup involved:
 - Generating self-signed certificates for various services
 - Configuring trust stores on client devices
 
-
 ## Securing Home Assistant
 
 I also have a Raspberry Pi 4 running [Home Assistant](https://www.home-assistant.io/) for home automation. As part of my "security initiative", I configured TLS for the Home Assistant instance as well. This ensures that all communication with my smart home devices and automation platform is encrypted.
@@ -61,8 +60,7 @@ The process involved:
 
 1. Generating SSL certificates for the Home Assistant domain
 2. [Configuring Home Assistant to use HTTPS with self signed certicates](https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970)
-3. Updating client applications to trust the new certificates e.g. an old Lenovo Tab 8 which is used as a home display 
-
+3. Updating client applications to trust the new certificates e.g. an old Lenovo Tab 8 which is used as a home display
 
 ## What's Next?
 
