@@ -136,10 +136,9 @@ The cloud image comes with a small disk. Resize if needed:
 qm resize 1001 scsi0 +20G
 ```
 
-## Bash script for all the steps as a single script
+## All the Steps in a Single Bash Script
 
 ```bash
-#!/bin/bash
 #!/bin/bash
 set -e
 
