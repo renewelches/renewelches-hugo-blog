@@ -136,6 +136,57 @@ The cloud image comes with a small disk. Resize if needed:
 qm resize 1001 scsi0 +20G
 ```
 
+## Bash script for all the steps as a single script
+
+```bash
+#!/bin/bash
+#!/bin/bash
+set -e
+
+TEMPLATE_ID=$(pvesh get /cluster/nextid) || { echo "Failed to get ID"; exit 1; }
+TEMPLATE_NAME="debian-13-cloudinit-tmplt"
+TEMPLATE_IMG=/mnt/pve/minis-cluster-nfs/template/iso/debian-13-generic-amd64.qcow2
+STORAGE="local-lvm"
+
+if [[ ! -f "$TEMPLATE_IMG" ]];
+    then echo "$TEMPLATE_IMG"
+    exit 1
+fi
+
+echo "Creating VM $TEMPLATE_ID with name $TEMPLATE_NAME"
+qm create $TEMPLATE_ID --name $TEMPLATE_NAME --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci
+
+echo "Importing disk..."
+qm importdisk $TEMPLATE_ID $TEMPLATE_IMG $STORAGE
+
+echo "Configuring VM..."
+echo "Attaching Disk..."
+qm set $TEMPLATE_ID --scsihw virtio-scsi-pci --scsi0 ${STORAGE}:vm-${TEMPLATE_ID}-disk-0
+echo "Setting boot order..."
+qm set $TEMPLATE_ID --boot order=scsi0 --serial0 socket --vga std
+echo "Adding Cloud-Init Drive..."
+qm set $TEMPLATE_ID --ide2 ${STORAGE}:cloudinit
+
+echo "Converting to template..."
+qm template $TEMPLATE_ID
+
+echo "Configure Cloud-Init Defaults..."
+echo "Setting ci user..."
+qm set $TEMPLATE_ID --ciuser admin
+echo "Setting up puplic ssh key..."
+qm set $TEMPLATE_ID --sshkey ~/.ssh/id_rsa.pub
+echo "Enabling DHCP..."
+qm set $TEMPLATE_ID --ipconfig0 ip=dhcp
+echo "Enabling qemu-guest-agent..."
+qm set $TEMPLATE_ID --agent 1
+echo "Set ci user password..."
+qm set $TEMPLATE_ID --cipassword
+echo "Resizing Disk"
+qm resize 1001 scsi0 +17G
+
+echo "Template $TEMPLATE_ID created successfully!"
+```
+
 ## Deploying VMs from the Template
 
 ### Clone the Template
