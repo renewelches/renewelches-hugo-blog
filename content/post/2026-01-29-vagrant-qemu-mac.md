@@ -211,7 +211,7 @@ qe.ssh_port = 2224
 
 ### 1. Apple Silicon Support
 
-QEMU runs natively on Apple Silicon Macs, providing near-native performance through hardware virtualization (Hypervisor.framework). VirtualBox still lacks full Apple Silicon support.
+QEMU runs natively on Apple Silicon Macs, providing near-native performance through hardware virtualization (Hypervisor.framework).
 
 ### 2. Lightweight
 
