@@ -5,7 +5,7 @@ subtitle: "Extend your Proxmox storage with LVM thin provisioning"
 date: 2026-01-08 11:00:00
 author: "Rene Welches"
 description: "Complete guide to adding a disk to a Proxmox node with existing storage. Learn how to integrate the disk into the LVM 'pve' volume group and extend the thin pool for transparent storage expansion."
-image: "/img/red-hook-crit.jpg"
+image: "/img/proxmox-homelab-banner.svg"
 publishDate: 2026-01-08 18:00:00
 tags:
   - Proxmox
@@ -54,6 +54,7 @@ cat /etc/pve/storage.cfg
 ```
 
 Look for an entry like:
+
 ```
 lvmthin: local-lvm
     thinpool data
@@ -134,6 +135,7 @@ The size should have increased significantly.
 ### Step 6: Verify in Proxmox
 
 In the Proxmox web UI:
+
 - Navigate to **Datacenter → Storage → local-lvm**
 - You should see the increased capacity available
 

@@ -5,7 +5,7 @@ subtitle: "Build reusable VM templates with cloud-init support"
 date: 2026-01-23 11:00:00
 author: "Rene Welches"
 description: "Step-by-step guide to creating a Debian generic cloud image template in Proxmox. Learn how to download, configure, and convert cloud images into reusable VM templates with cloud-init support."
-image: "/img/red-hook-crit.jpg"
+image: "/img/proxmox-homelab-banner.svg"
 publishDate: 2026-01-23 18:00:00
 tags:
   - Proxmox

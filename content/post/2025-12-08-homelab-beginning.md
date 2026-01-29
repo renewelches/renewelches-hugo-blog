@@ -5,7 +5,7 @@ subtitle: "Building a Proxmox-based homelab with GMKtec NucBox M5 Ultra and sett
 date: 2025-12-08 11:00:00
 author: "Rene Welches"
 description: "Starting a homelab with a $256 GMKtec NucBox M5 Ultra (Ryzen 7 7730U) and Proxmox VE. Includes setting up self-signed SSL certificates for secure HTTPS across all homelab services including Home Assistant."
-image: "/img/red-hook-crit.jpg"
+image: "/img/proxmox-homelab-banner.svg"
 publishDate: 2025-12-08 11:00:00
 tags:
   - Homelab

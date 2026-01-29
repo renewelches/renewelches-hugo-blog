@@ -5,7 +5,7 @@ subtitle: "Store and retrieve Proxmox credentials securely using macOS Keychain 
 date: 2025-12-09 14:00:00
 author: "Rene Welches"
 description: "Securely manage Proxmox API tokens for Terraform using macOS Keychain Access. Eliminates plain text credential files and integrates seamlessly with automated Terraform workflows."
-image: "/img/red-hook-crit.jpg"
+image: "/img/proxmox-homelab-banner.svg"
 publishDate: 2025-12-09 14:00:00
 tags:
   - Homelab
@@ -79,6 +79,7 @@ security add-generic-password \
 ```
 
 **Parameter breakdown:**
+
 - `-s proxmox-terraform`: The **service name** (identifier for this credential)
 - `-a proxmox-terraform-user`: The **account name** (username/identifier)
 - `-D API Token`: Specify kind (default is "application password"). Since we are using a token we are setting API Token
@@ -89,6 +90,7 @@ After running this command, you'll be prompted to enter your Proxmox API token. 
 Make sure the api token use the format `<user id>!<token id>=<api token>`
 
 **Example with the password inline** (less secure, but useful for scripting):
+
 ```bash
 security add-generic-password \
   -s proxmox-terraform \
@@ -111,6 +113,7 @@ security find-generic-password \
 The `-w` flag outputs only the password (without metadata), making it perfect for scripting and automation.
 
 **Test the retrieval:**
+
 ```bash
 echo "Retrieved password: $(security find-generic-password -s proxmox-terraform -a proxmox-terraform-user -w)"
 ```
@@ -192,6 +195,7 @@ chmod +x terraform-proxmox.sh
 ```
 
 **Usage:**
+
 ```bash
 ./terraform-proxmox.sh init
 ./terraform-proxmox.sh plan

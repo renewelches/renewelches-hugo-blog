@@ -5,7 +5,7 @@ subtitle: "A complete guide to publishing your Hugo site from GitHub to Netlify"
 date: 2025-11-07 11:00:00
 author: "Rene Welches"
 description: "Complete guide to deploying Hugo sites on Netlify with automatic GitHub deployments. Includes detailed netlify.toml configuration, security headers, cache optimization, and troubleshooting common build issues."
-image: "/img/red-hook-crit-1.jpg"
+image: "/img/hugo-deploy-banner.svg"
 publishDate: 2025-11-07 11:00:00
 tags:
   - Hugo
@@ -223,12 +223,10 @@ git push origin main
 ### Step 3: Connect GitHub to Netlify
 
 1. **Log in to Netlify**
-
    - Go to [app.netlify.com](https://app.netlify.com/)
    - Sign in with your GitHub account (recommended) or create a new account
 
 2. **Import Your Project**
-
    - Click "Add new site" → "Import an existing project"
    - Choose "Deploy with GitHub"
    - Authorize Netlify to access your GitHub account if prompted

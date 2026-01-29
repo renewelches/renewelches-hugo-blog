@@ -5,6 +5,7 @@ subtitle: "Using Black, isort, and Mypy for cleaner Python code"
 date: 2025-11-11
 author: "Rene Welches"
 description: "Configure VS Code to automatically format Python code with Black and organize imports with isort on every save. Includes Mypy static type checking for more robust code."
+image: "/img/vscode-python-formatter-banner.svg"
 URL: "/2025/11/11/vscode-python-formatter/"
 tags:
   - VS Code

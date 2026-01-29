@@ -5,7 +5,7 @@ subtitle: "How I save Netlify credits by using GitHub Pages for preview deployme
 date: 2026-01-05 10:00:00
 author: "Rene Welches"
 description: "Save Netlify build credits by using GitHub Pages for preview deployments. Complete GitHub Actions workflow that deploys your preview branch to GitHub Pages while keeping production on Netlify's CDN."
-image: "/img/red-hook-crit-1.jpg"
+image: "/img/hugo-deploy-banner.svg"
 publishDate: 2026-01-05 10:00:00
 tags:
   - Hugo
@@ -410,7 +410,9 @@ Update your Hugo templates to show a preview banner when `HUGO_ENVIRONMENT` is "
 ```html
 {{ if eq (getenv "HUGO_ENVIRONMENT") "preview" }}
 <div class="preview-banner">
-  ⚠️ This is a preview site. Visit <a href="https://blog.renewelches.com">blog.renewelches.com</a> for the production site.
+  ⚠️ This is a preview site. Visit
+  <a href="https://blog.renewelches.com">blog.renewelches.com</a> for the
+  production site.
 </div>
 {{ end }}
 ```
@@ -418,6 +420,7 @@ Update your Hugo templates to show a preview banner when `HUGO_ENVIRONMENT` is "
 Or add PREVIEW to the title and set it as variable in your github action (that's what I did)
 
 ```yaml
+
 ...
 - name: Build with Hugo
   env:

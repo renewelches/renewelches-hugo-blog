@@ -5,7 +5,7 @@ subtitle: "Using SSH Agent authentication to provision Docker containers in LXC 
 date: 2026-01-13 14:00:00
 author: "Rene Welches"
 description: "Learn how to use Terraform with SSH agent authentication to automatically deploy Docker containers in Proxmox LXC environments. Includes practical examples and discusses why Ansible is better suited for configuration management."
-image: "/img/red-hook-crit.jpg"
+image: "/img/proxmox-homelab-banner.svg"
 publishDate: 2026-01-13 14:00:00
 tags:
   - Homelab
@@ -41,6 +41,7 @@ My setup uses the [bpg/proxmox](https://registry.terraform.io/providers/bpg/prox
 ### The Foundation: Docker-Ready LXC Templates
 
 The key to this workflow is having a custom Debian 13 template that includes:
+
 - Docker installed and running
 - SSH key pre-provisioned for root user
 - Proper LXC nesting features enabled
@@ -84,14 +85,14 @@ ssh-add ~/.ssh/id_rsa
 ssh-add -l
 ```
 
-Good news for Mac users,  this can be done automatically and you don't have to do this with every new session.
+Good news for Mac users, this can be done automatically and you don't have to do this with every new session.
 
 ```bash
 cd ~/.ssh
 sudo vim config
 ```
 
-(or any other editor you prefer). And then add to the host* section: 
+(or any other editor you prefer). And then add to the host\* section:
 
 ```bash
 Host*
@@ -279,12 +280,11 @@ This separation provides:
 - **Reusability**: Ansible playbooks can be used independently of Terraform
 - **Easier updates**: Update applications without touching infrastructure
 
-
 ## Conclusion
 
-My current Terraform-based Docker provisioning setup demonstrates that you *can* use Terraform for both infrastructure and configuration management. The SSH agent authentication provides a secure way to connect and configure containers without embedding secrets in code.
+My current Terraform-based Docker provisioning setup demonstrates that you _can_ use Terraform for both infrastructure and configuration management. The SSH agent authentication provides a secure way to connect and configure containers without embedding secrets in code.
 
-However, just because you *can* doesn't mean you *should*. While this approach works fine for quick deployments and initial setup, Ansible is the better tool for configuration management:
+However, just because you _can_ doesn't mean you _should_. While this approach works fine for quick deployments and initial setup, Ansible is the better tool for configuration management:
 
 - Better idempotency
 - Drift detection

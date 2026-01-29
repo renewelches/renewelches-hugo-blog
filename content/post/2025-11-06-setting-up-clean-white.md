@@ -5,7 +5,7 @@ subtitle: "A step-by-step guide to creating a Hugo blog from scratch to Deployme
 date: 2025-11-06 11:00:00
 author: "Rene Welches"
 description: "Step-by-step guide to creating a Hugo blog with the Clean White theme using Hugo modules (not Git submodules). Covers installation, configuration, menu setup, and creating your first blog post."
-image: "/img/red-hook-crit-1.jpg"
+image: "/img/hugo-deploy-banner.svg"
 publishDate: 2025-11-06 11:00:00
 tags:
   - Hugo

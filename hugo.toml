@@ -9,7 +9,7 @@ googleAnalytics = "G-KY2Z0BMY6Y"
 
 # Site Parameters
 [params]
-  header_image = "img/bike.jpg"
+  header_image = "img/blog-start-banner.svg"
   description = "René's Blog and Notebook about homelab, AI, and technology"
   omit_categories = false
   SEOTitle = "Rene Welches' Blog"
