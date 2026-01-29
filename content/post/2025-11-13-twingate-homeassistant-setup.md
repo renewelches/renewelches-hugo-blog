@@ -5,7 +5,7 @@ subtitle: "Alternative setup to Pi-Hole and Pi-VPN with Twingate, Home Assistant
 date: 2025-11-13 11:00:00
 author: "Rene Welches"
 description: "Modern zero-trust VPN setup using Twingate for secure home network access, with AdGuard Home for local DNS resolution. No port forwarding or DDNS required - a simpler alternative to Pi-Hole and PiVPN."
-image: "/img/red-hook-crit.jpg"
+image: "/img/twingate-hero-banner.svg"
 publishDate: 2025-11-13 11:00:00
 tags:
   - Homelab
@@ -26,6 +26,8 @@ In the past, I used Pi-Hole (for ad blocking/DNS) and PiVPN (with WireGuard prot
 
 Twingate provides a modern zero-trust network access solution that's perfect for securely accessing your home network resources from anywhere. Unlike traditional VPNs, Twingate offers device-level authentication, split-tunneling by default, and doesn't require opening ports on your router or managing DDNS.
 
+> **Update (January 2026):** I discovered that running the Twingate Connector on the same host as your DNS server (AdGuard Home) can cause DNS resolution issues. If you experience problems, consider moving the connector to a separate machine. See my follow-up post: [Fixing Twingate DNS Resolution with AdGuard Home](/2026/01/29/twingate-dns-fix).
+
 ## Prerequisites
 
 - A running Home Assistant instance on your local network
@@ -44,7 +46,6 @@ When accessing a resource like Home Assistant on your home network, you want to 
 1. **Access your Home Assistant instance** at Home Assistant's default location http://homeassistant.local:8123.
 2. **Install the AdGuard Home Plugin** from the Home Assistant Add-on Store. Enable the `watchdog` option (recommended) and optionally `show in sidebar` (very convenient). Start the plugin.
 3. **Set Up Upstream DNS Servers**
-
    - Navigate to **AdGuard Home Plugin** and then in the top navigation to **Settings** → **DNS Settings**.
    - In the `Upstream DNS servers` form, add your upstream DNS provider. For example:
 
@@ -70,7 +71,7 @@ When accessing a resource like Home Assistant on your home network, you want to 
 7. **Verify DNS Resolution**
    ```bash
    # From a Mac/Linux device on your local network
-   nslookup homeassistant.homelab.local
+   nslookup homeassistant.homelab.internal
    # Should return your Home Assistant IP
    ```
 
@@ -83,7 +84,6 @@ The Twingate Connector is a lightweight service that runs on your network and pr
 ### Add Home Assistant as a Resource
 
 1. **Navigate to Resources**
-
    - In Twingate Admin Console, go to **Network** → **Resources**
    - Click **Add Resource**
 
@@ -100,12 +100,10 @@ The Twingate Connector is a lightweight service that runs on your network and pr
 ### Install Twingate Client
 
 1. **Download the client** for your platform:
-
    - Windows/Mac/Linux: [twingate.com/download](https://www.twingate.com/download)
    - iOS/Android: Search "Twingate" in app stores
 
 2. **Authenticate**
-
    - Enter your network name (e.g., `homelab.twingate.com`)
    - Complete SSO or email authentication
    - Accept any required policies
@@ -113,7 +111,18 @@ The Twingate Connector is a lightweight service that runs on your network and pr
 3. **Verify DNS Setup**
 
    ```bash
-   # From a Mac/Linux device on your local network
-   nslookup homeassistant.homelab.local
+   # From a Mac/Linux device
+   nslookup homeassistant.homelab.internal
    # Should return your Home Assistant IP
    ```
+
+## Conclusion
+
+With this setup, you now have secure, zero-trust access to your home network without the hassle of port forwarding, DDNS, or maintaining WireGuard configurations. Compared to my previous Pi-Hole and PiVPN setup, Twingate offers several advantages:
+
+- **No exposed ports**: Your router stays locked down with no inbound connections required.
+- **No DDNS dependency**: No more worrying about domain registrars dropping DDNS support.
+- **Split tunneling by default**: Only traffic to your home resources goes through the tunnel, keeping everything else fast.
+- **Easy device management**: Add or revoke access from the Twingate Admin Console without touching your home network.
+
+The combination of Twingate for secure access and AdGuard Home for local DNS gives you a modern, maintainable solution for accessing your homelab from anywhere.

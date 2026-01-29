@@ -1,0 +1,291 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <!-- Noise texture filter -->
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply" result="blend"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="blend" mode="overlay"/>
+    </filter>
+    
+    <!-- Gradient for depth -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="50%" style="stop-color:#111111"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    </linearGradient>
+    
+    <!-- Radial glow for nodes -->
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#ffffff;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- Secure tunnel gradient -->
+    <linearGradient id="tunnelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0"/>
+      <stop offset="20%" style="stop-color:#ffffff;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1"/>
+      <stop offset="80%" style="stop-color:#ffffff;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </linearGradient>
+    
+    <!-- Dashed line pattern for encrypted paths -->
+    <pattern id="dashPattern" patternUnits="userSpaceOnUse" width="12" height="1">
+      <line x1="0" y1="0.5" x2="6" y2="0.5" stroke="#ffffff" stroke-width="1"/>
+    </pattern>
+    
+    <!-- Shield symbol -->
+    <symbol id="shield" viewBox="0 0 40 48">
+      <path d="M20 0 L40 8 L40 24 C40 38 20 48 20 48 C20 48 0 38 0 24 L0 8 Z" 
+            fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M14 24 L18 28 L26 18" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    
+    <!-- Home icon -->
+    <symbol id="home" viewBox="0 0 40 40">
+      <path d="M20 4 L4 18 L4 36 L16 36 L16 26 L24 26 L24 36 L36 36 L36 18 Z" 
+            fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+    
+    <!-- Network node -->
+    <symbol id="node" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <circle cx="12" cy="12" r="4" fill="#ffffff"/>
+    </symbol>
+    
+    <!-- Lock icon -->
+    <symbol id="lock" viewBox="0 0 32 40">
+      <rect x="2" y="16" width="28" height="22" rx="3" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M8 16 L8 10 C8 4 12 2 16 2 C20 2 24 4 24 10 L24 16" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="16" cy="28" r="3" fill="#ffffff"/>
+    </symbol>
+    
+    <!-- Hexagon grid pattern -->
+    <pattern id="hexGrid" patternUnits="userSpaceOnUse" width="60" height="52" patternTransform="rotate(0)">
+      <polygon points="30,0 60,15 60,37 30,52 0,37 0,15" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.1"/>
+    </pattern>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Strong glow -->
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle hex grid overlay -->
+  <rect width="100%" height="100%" fill="url(#hexGrid)" opacity="0.5"/>
+  
+  <!-- Animated circuit-like background lines -->
+  <g opacity="0.15">
+    <line x1="0" y1="150" x2="1920" y2="150" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="300" x2="1920" y2="300" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="0" y1="450" x2="1920" y2="450" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="480" y1="0" x2="480" y2="600" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="960" y1="0" x2="960" y2="600" stroke="#ffffff" stroke-width="0.5"/>
+    <line x1="1440" y1="0" x2="1440" y2="600" stroke="#ffffff" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Diagonal secure tunnel lines (representing encrypted pathways) -->
+  <g opacity="0.25">
+    <line x1="100" y1="500" x2="600" y2="200" stroke="#ffffff" stroke-width="1" stroke-dasharray="8 4"/>
+    <line x1="200" y1="550" x2="700" y2="250" stroke="#ffffff" stroke-width="0.5" stroke-dasharray="4 8"/>
+    <line x1="1300" y1="100" x2="1800" y2="400" stroke="#ffffff" stroke-width="1" stroke-dasharray="8 4"/>
+    <line x1="1400" y1="50" x2="1850" y2="350" stroke="#ffffff" stroke-width="0.5" stroke-dasharray="4 8"/>
+  </g>
+  
+  <!-- Central secure tunnel visualization -->
+  <g filter="url(#glow)">
+    <!-- Main tunnel path -->
+    <path d="M 300 300 Q 600 200 960 300 Q 1320 400 1620 300" 
+          fill="none" stroke="#ffffff" stroke-width="3" opacity="0.8"/>
+    
+    <!-- Parallel tunnel lines for depth -->
+    <path d="M 300 290 Q 600 190 960 290 Q 1320 390 1620 290" 
+          fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    <path d="M 300 310 Q 600 210 960 310 Q 1320 410 1620 310" 
+          fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    
+    <!-- Encrypted data packets moving through tunnel -->
+    <circle cx="500" cy="255" r="4" fill="#ffffff" opacity="0.9">
+      <animate attributeName="cx" values="300;1620" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="300;230;300;370;300" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="270" r="3" fill="#ffffff" opacity="0.6">
+      <animate attributeName="cx" values="300;1620" dur="5s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="cy" values="300;230;300;370;300" dur="5s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="900" cy="285" r="2" fill="#ffffff" opacity="0.4">
+      <animate attributeName="cx" values="300;1620" dur="6s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="cy" values="300;230;300;370;300" dur="6s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+  </g>
+  
+  <!-- Left side: External world / devices -->
+  <g transform="translate(150, 250)" filter="url(#glow)">
+    <!-- Outer ring representing the outside world -->
+    <circle cx="60" cy="50" r="80" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    <circle cx="60" cy="50" r="100" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.15" stroke-dasharray="4 4"/>
+    
+    <!-- Device nodes -->
+    <g transform="translate(-20, -60)">
+      <use href="#node" width="20" height="20"/>
+    </g>
+    <g transform="translate(100, -40)">
+      <use href="#node" width="18" height="18"/>
+    </g>
+    <g transform="translate(120, 80)">
+      <use href="#node" width="16" height="16"/>
+    </g>
+    <g transform="translate(-30, 100)">
+      <use href="#node" width="18" height="18"/>
+    </g>
+    
+    <!-- Connection lines to central lock -->
+    <line x1="-10" y1="-50" x2="50" y2="35" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="109" y1="-31" x2="70" y2="35" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="128" y1="88" x2="70" y2="55" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="-21" y1="109" x2="50" y2="55" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    
+    <!-- Central lock icon -->
+    <g transform="translate(44, 25)" filter="url(#strongGlow)">
+      <use href="#lock" width="32" height="40"/>
+    </g>
+  </g>
+  
+  <!-- Center: Twingate secure gateway -->
+  <g transform="translate(880, 220)" filter="url(#strongGlow)">
+    <!-- Multiple rotating rings -->
+    <circle cx="80" cy="80" r="70" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 80 80" to="360 80 80" dur="30s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="80" cy="80" r="55" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" stroke-dasharray="8 4">
+      <animateTransform attributeName="transform" type="rotate" from="360 80 80" to="0 80 80" dur="20s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="80" cy="80" r="40" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3">
+      <animateTransform attributeName="transform" type="rotate" from="0 80 80" to="360 80 80" dur="15s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Central shield (security) -->
+    <g transform="translate(60, 56)">
+      <use href="#shield" width="40" height="48"/>
+    </g>
+    
+    <!-- Orbiting security nodes -->
+    <g>
+      <circle cx="150" cy="80" r="6" fill="#ffffff">
+        <animateTransform attributeName="transform" type="rotate" from="0 80 80" to="360 80 80" dur="10s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <g>
+      <circle cx="10" cy="80" r="4" fill="#ffffff" opacity="0.7">
+        <animateTransform attributeName="transform" type="rotate" from="120 80 80" to="480 80 80" dur="12s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <g>
+      <circle cx="80" cy="10" r="5" fill="#ffffff" opacity="0.5">
+        <animateTransform attributeName="transform" type="rotate" from="240 80 80" to="600 80 80" dur="14s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Right side: Home network / Home Assistant -->
+  <g transform="translate(1600, 230)" filter="url(#glow)">
+    <!-- Home network circle -->
+    <circle cx="60" cy="70" r="90" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    <circle cx="60" cy="70" r="110" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.15" stroke-dasharray="6 3"/>
+    
+    <!-- Central home icon -->
+    <g transform="translate(40, 50)" filter="url(#strongGlow)">
+      <use href="#home" width="40" height="40"/>
+    </g>
+    
+    <!-- Connected smart devices -->
+    <g transform="translate(130, 20)">
+      <circle cx="8" cy="8" r="8" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <circle cx="8" cy="8" r="3" fill="#ffffff"/>
+    </g>
+    <g transform="translate(140, 100)">
+      <circle cx="6" cy="6" r="6" fill="none" stroke="#ffffff" stroke-width="1"/>
+      <circle cx="6" cy="6" r="2" fill="#ffffff"/>
+    </g>
+    <g transform="translate(-40, 130)">
+      <circle cx="7" cy="7" r="7" fill="none" stroke="#ffffff" stroke-width="1"/>
+      <circle cx="7" cy="7" r="2.5" fill="#ffffff"/>
+    </g>
+    <g transform="translate(-50, 10)">
+      <circle cx="6" cy="6" r="6" fill="none" stroke="#ffffff" stroke-width="1"/>
+      <circle cx="6" cy="6" r="2" fill="#ffffff"/>
+    </g>
+    
+    <!-- Connection lines -->
+    <line x1="130" y1="28" x2="80" y2="70" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="146" y1="106" x2="80" y2="80" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="-33" y1="137" x2="45" y2="90" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="-44" y1="16" x2="45" y2="60" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+  </g>
+  
+  <!-- Floating geometric accents -->
+  <g opacity="0.2">
+    <!-- Top left corner -->
+    <polygon points="50,50 100,30 100,70" fill="none" stroke="#ffffff" stroke-width="1"/>
+    <polygon points="80,80 130,60 130,100" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    
+    <!-- Bottom left -->
+    <rect x="100" y="480" width="40" height="40" fill="none" stroke="#ffffff" stroke-width="1" transform="rotate(15, 120, 500)"/>
+    
+    <!-- Top right -->
+    <polygon points="1800,80 1850,60 1850,100" fill="none" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="1750" cy="120" r="20" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    
+    <!-- Bottom right -->
+    <rect x="1780" y="480" width="35" height="35" fill="none" stroke="#ffffff" stroke-width="1" transform="rotate(-10, 1797, 497)"/>
+  </g>
+  
+  <!-- DNS resolution visualization (bottom) -->
+  <g transform="translate(700, 480)" opacity="0.4">
+    <text x="0" y="0" fill="#ffffff" font-family="'SF Mono', 'Monaco', monospace" font-size="11" letter-spacing="2">
+      DNS: homeassistant.homelab.internal → 192.168.x.x
+    </text>
+    <line x1="0" y1="10" x2="520" y2="10" stroke="#ffffff" stroke-width="0.5" stroke-dasharray="2 2"/>
+  </g>
+  
+  <!-- Subtle corner vignette effect -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)" opacity="0">
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.4"/>
+    </radialGradient>
+  </rect>
+  
+  <!-- Apply noise texture overlay -->
+  <rect width="100%" height="100%" fill="transparent" filter="url(#noise)"/>
+  
+  <!-- Subtle scan line effect -->
+  <g opacity="0.03">
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="100%" height="4">
+      <line x1="0" y1="0" x2="1920" y2="0" stroke="#ffffff" stroke-width="1"/>
+    </pattern>
+    <rect width="100%" height="100%" fill="url(#scanlines)"/>
+  </g>
+</svg>
