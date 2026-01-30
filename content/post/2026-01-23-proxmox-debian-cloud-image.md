@@ -181,7 +181,7 @@ qm set $TEMPLATE_ID --agent 1
 echo "Set ci user password..."
 qm set $TEMPLATE_ID --cipassword
 echo "Resizing Disk"
-qm resize 1001 scsi0 +17G
+qm resize $TEMPLATE_ID scsi0 +17G
 
 echo "Template $TEMPLATE_ID created successfully!"
 ```
