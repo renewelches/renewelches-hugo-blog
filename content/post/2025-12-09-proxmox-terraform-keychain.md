@@ -35,6 +35,12 @@ Before you can use API tokens with Terraform, you need to create a dedicated use
 2. Assign appropriate permissions/roles to this user (e.g., [Creating the Proxmox user and role for terraform](https://registry.terraform.io/providers/Elsvent/proxmox/latest/docs))
 3. Generate an API token for the user via **Datacenter → Permissions → API Tokens**
 
+Update: the permission settings documentation is a bit old. Here’s the updated list of permissions you need.
+
+```bash
+pveum role add TerraformProv -privs "Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.PowerMgmt SDN.Use"
+```
+
 ### Disabling Privilege Separation
 
 **Important:** When creating the API token, you must **disable "Privilege Separation"** (uncheck the box).
