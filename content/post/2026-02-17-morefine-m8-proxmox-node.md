@@ -29,8 +29,8 @@ Back in January I [wrote about adding the Minisforum UM700 as a second Proxmox n
 
 **In:**
 
-- MOREFINE M8 Mini PC — Intel N150, 16GB DDR4, 1TB NVMe SSD
-- Purchased on Amazon for **$219.99**
+- [MOREFINE M8 Mini PC — Intel N150, 16GB DDR4, 1TB NVMe SSD (affiliate link)](https://amzn.to/4axb4xW)
+- Purchased on Amazon for **$219.99** (price increased since then)
 - **Net cost: ~$120**
 
 For $120 out of pocket I went from a Pentium Silver J5005 (Gemini Lake, 2018) with 240GB of storage to a brand-new Intel N150 with a full terabyte of NVMe. That felt like a good trade.
