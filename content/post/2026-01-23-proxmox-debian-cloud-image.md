@@ -166,9 +166,6 @@ qm set $TEMPLATE_ID --boot order=scsi0 --serial0 socket --vga std
 echo "Adding Cloud-Init Drive..."
 qm set $TEMPLATE_ID --ide2 ${STORAGE}:cloudinit
 
-echo "Converting to template..."
-qm template $TEMPLATE_ID
-
 echo "Configure Cloud-Init Defaults..."
 echo "Setting ci user..."
 qm set $TEMPLATE_ID --ciuser admin
@@ -180,11 +177,17 @@ echo "Enabling qemu-guest-agent..."
 qm set $TEMPLATE_ID --agent 1
 echo "Set ci user password..."
 qm set $TEMPLATE_ID --cipassword
+
+echo "Converting to template..."
+qm template $TEMPLATE_ID
+
 echo "Resizing Disk"
 qm resize $TEMPLATE_ID scsi0 +17G
 
 echo "Template $TEMPLATE_ID created successfully!"
 ```
+
+> **Update (February 2026):** When I had to re-create the template, the guest agent wouldn't start. In this case, do not convert the VM to a template right away. Instead, start the VM first and install the agent with `sudo apt install qemu-guest-agent`. If you are using a custom root CA (as I do), it is also recommended to add it to the Linux certificate store. You can then shut down the VM and convert it to a template.
 
 ## Deploying VMs from the Template
 
