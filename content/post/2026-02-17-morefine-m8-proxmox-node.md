@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Upgrading My "Frankenstein-cluster": MOREFINE M8 Replaces the MINIX"
+title: "Upgrading My 'Frankenstein-cluster': MOREFINE M8 Replaces the MINIX"
 subtitle: "A newer, faster node for $120 net after selling the old one"
 date: 2026-02-17 12:00:00
 author: "Rene Welches"
