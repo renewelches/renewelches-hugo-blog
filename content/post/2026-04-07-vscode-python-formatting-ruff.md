@@ -26,7 +26,7 @@ A few things started to bother me:
 
 **Black + isort is two tools doing one job.** Black handles formatting and isort handles imports, but they need to be kept in sync (hence `--profile black` in the isort config). If they disagree, you get conflicts.
 
-**`python.analysis.typeCheckingMode: strict` is very aggressive.** Strict mode requires full type annotations everywhere — including in code you didn't write. When pasting an example from the Anthropic SDK docs or a tutorial, you'd immediately get a wall of red squiggles for missing type hints. That's not helpful.
+**`python.analysis.typeCheckingMode: strict` is very aggressive.** Strict mode requires full type annotations everywhere — including in code you didn't write. When pasting an example from the Anthropic SDK docs or a tutorial, you'd immediately get a wall of red squiggles for missing type hints. It was driving me crazy!.
 
 **`--disallow-untyped-defs` in Mypy compounds the problem.** This flag means Mypy errors on every function that doesn't have type annotations. Again, fine for a fully-typed production codebase, but painful when experimenting or learning.
 
@@ -69,8 +69,8 @@ Here's the relevant part of `settings.json` after the switch:
 
   "mypy-type-checker.enabled": true,
   "mypy-type-checker.args": [
-    "--ignore-missing-imports",  // No errors for third-party packages without stubs
-    "--follow-imports=silent",   // Only check our own code, not imported packages
+    "--ignore-missing-imports", // No errors for third-party packages without stubs
+    "--follow-imports=silent", // Only check our own code, not imported packages
     "--show-column-numbers"
   ],
   "mypy-type-checker.reportingScope": "workspace"
@@ -79,14 +79,14 @@ Here's the relevant part of `settings.json` after the switch:
 
 ## What Changed and Why It's Better
 
-| | Old setup | New setup |
-|---|---|---|
-| **Formatter** | `ms-python.black-formatter` | `charliermarsh.ruff` |
-| **Import sorting** | `ms-python.isort` + `--profile black` | Built into Ruff (`I` ruleset) |
-| **Type checking level** | `strict` | `basic` |
-| **Mypy untyped functions** | Error (`--disallow-untyped-defs`) | Allowed |
-| **Missing package stubs** | Error | Silently ignored (`--ignore-missing-imports`) |
-| **Line length enforcement** | Pycodestyle E501 | Handled by formatter, not linter |
+|                             | Old setup                             | New setup                                     |
+| --------------------------- | ------------------------------------- | --------------------------------------------- |
+| **Formatter**               | `ms-python.black-formatter`           | `charliermarsh.ruff`                          |
+| **Import sorting**          | `ms-python.isort` + `--profile black` | Built into Ruff (`I` ruleset)                 |
+| **Type checking level**     | `strict`                              | `basic`                                       |
+| **Mypy untyped functions**  | Error (`--disallow-untyped-defs`)     | Allowed                                       |
+| **Missing package stubs**   | Error                                 | Silently ignored (`--ignore-missing-imports`) |
+| **Line length enforcement** | Pycodestyle E501                      | Handled by formatter, not linter              |
 
 ### Fewer false alarms on third-party examples
 
