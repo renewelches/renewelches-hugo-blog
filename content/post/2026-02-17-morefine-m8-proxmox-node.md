@@ -41,11 +41,11 @@ The Intel N150 is part of Intel's 13th gen "Twin Lake" series — a modern, ener
 
 - **CPU:** Intel N150, 4 cores / 4 threads, up to 3.6 GHz boost
 - **TDP:** 6W — runs cool and quiet without a fan upgrade
-- **RAM:** 16GB DDR4 (soldered)
-- **Storage:** 1TB NVMe SSD
-- **Display:** 4K dual display output
-- **Networking:** RJ45 Ethernet + Wi-Fi
-- **USB:** USB 3.2 ports
+- **RAM:** 16GB DDR4 (up to 32GB, 3200MHz)
+- **Storage:** 1TB NVMe SSD (M.2 2280 PCIe 3.0, up to 2TB)
+- **Display:** HDMI 2.0 ×2, DP 1.4 ×1, USB-C ×1 — all 4K capable
+- **Networking:** 2.5GbE, WiFi 6, Bluetooth 5.2
+- **USB:** 4× USB 3.0 ports
 
 Compared to the MINIX's Pentium Silver J5005, the N150 is a newer architecture with better single-threaded performance and significantly lower idle power draw — both important for a node that runs 24/7.
 
