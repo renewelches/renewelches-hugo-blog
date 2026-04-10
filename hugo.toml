@@ -28,7 +28,7 @@ googleAnalytics = "G-KY2Z0BMY6Y"
 
   [[params.additional_menus]]
     title = "ABOUT"
-    href = "/about/"
+    href = "about"
 
 # Taxonomy
 [taxonomies]
