@@ -2,6 +2,7 @@
 title: "About"
 description: "About René Welches — platform engineer, homelab tinkerer, Queens NY"
 layout: page
+comments: false
 ---
 
 ## Hi, I'm René
@@ -46,15 +47,15 @@ My focus is on the intersection of platform engineering, cloud architecture, and
 - Architectural governance — standards that scale across large engineering organizations
 - AI-assisted development workflows and LLM tooling
 
-I write Go and Java, know my way around Python, and have a soft spot for infrastructure that explains itself.
+I write Go, know my way around Python and I am still thinking Java, and have a soft spot for infrastructure that explains itself.
 
 ---
 
-## Outside of Work
+<!-- ## Outside of Work
 
 I practice yoga and have a longstanding interest in Buddhism — both shape how I think about work, patience, and the occasional production incident.
 
-I'm also into photography, cycling, surfing when the opportunity arises, and following politics more than is probably good for me.
+I'm also into photography, cycling, surfing when the opportunity arises, and following politics more than is probably good for me. -->
 
 ---
 
