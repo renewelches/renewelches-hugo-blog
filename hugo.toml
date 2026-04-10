@@ -26,6 +26,18 @@ googleAnalytics = "G-KY2Z0BMY6Y"
     linkedin = "https://www.linkedin.com/in/rené-welches-6512113/"
     #email = "rene.welches@gmail.com"
 
+  [params.giscus]
+    data_repo = "renewelches/renewelches-hugo-blog"
+    data_repo_id = "R_kgDOQObS_w"
+    data_category = "Announcements"
+    data_category_id = "DIC_kwDOQObS_84C6i77"
+    data_mapping = "pathname"
+    data_reactions_enabled = "1"
+    data_emit_metadata = "0"
+    data_theme = "light"
+    data_lang = "en"
+    crossorigin = "anonymous"
+
   [[params.additional_menus]]
     title = "ABOUT"
     href = "about"
