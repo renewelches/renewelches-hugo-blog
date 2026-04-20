@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080808"/>
+      <stop offset="40%" style="stop-color:#0f0f0f"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+
+    <!-- Spotlight -->
+    <radialGradient id="spotlight" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.03"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- Glow filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Noise texture -->
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply" result="blend"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.10"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="blend" mode="overlay"/>
+    </filter>
+
+    <!-- Background patterns -->
+    <pattern id="isoGrid" patternUnits="userSpaceOnUse" width="60" height="35">
+      <line x1="0" y1="17.5" x2="30" y2="0" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+      <line x1="30" y1="0" x2="60" y2="17.5" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+      <line x1="0" y1="17.5" x2="30" y2="35" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+      <line x1="30" y1="35" x2="60" y2="17.5" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+    </pattern>
+
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="1920" height="3">
+      <line x1="0" y1="0" x2="1920" y2="0" stroke="#ffffff" stroke-width="1"/>
+    </pattern>
+
+    <!-- Arrow marker for flow lines -->
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ffffff" opacity="0.5"/>
+    </marker>
+
+    <marker id="arrowFaint" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ffffff" opacity="0.25"/>
+    </marker>
+
+    <!-- ── Symbol definitions ── -->
+
+    <!-- Terraform: hexagon with TF-like internal strokes -->
+    <symbol id="terraform" viewBox="0 0 80 80">
+      <polygon points="40,6 68,22 68,58 40,74 12,58 12,22"
+               fill="none" stroke="#ffffff" stroke-width="2"/>
+      <!-- left pillar -->
+      <line x1="26" y1="28" x2="26" y2="52" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- diagonal arm -->
+      <line x1="26" y1="28" x2="44" y2="38" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- crossbar -->
+      <line x1="26" y1="40" x2="40" y2="40" stroke="#ffffff" stroke-width="1.4" opacity="0.8"/>
+      <!-- right pillar (F) -->
+      <line x1="50" y1="28" x2="50" y2="52" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      <line x1="44" y1="28" x2="57" y2="28" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
+      <line x1="44" y1="40" x2="55" y2="40" stroke="#ffffff" stroke-width="1.3" opacity="0.6"/>
+    </symbol>
+
+    <!-- LXC container grid: outer box + 4 inner cells -->
+    <symbol id="lxc" viewBox="0 0 80 80">
+      <rect x="6" y="6" width="68" height="68" rx="4"
+            fill="none" stroke="#ffffff" stroke-width="2"/>
+      <rect x="14" y="14" width="22" height="22" rx="2"
+            fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <rect x="44" y="14" width="22" height="22" rx="2"
+            fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <rect x="14" y="44" width="22" height="22" rx="2"
+            fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <rect x="44" y="44" width="22" height="22" rx="2"
+            fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.55"/>
+      <circle cx="25" cy="25" r="3" fill="#ffffff" opacity="0.6"/>
+      <circle cx="55" cy="25" r="3" fill="#ffffff" opacity="0.4"/>
+      <circle cx="25" cy="55" r="3" fill="#ffffff" opacity="0.4"/>
+    </symbol>
+
+    <!-- Ansible: circle with A mark inside -->
+    <symbol id="ansible" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="34" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="40" cy="40" r="22" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+      <line x1="28" y1="57" x2="40" y2="24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="40" y1="24" x2="52" y2="57" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="32" y1="46" x2="48" y2="46" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
+    </symbol>
+
+    <!-- Docker: stacked container layers -->
+    <symbol id="docker" viewBox="0 0 80 80">
+      <rect x="6" y="40" width="68" height="16" rx="2"
+            fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <rect x="6" y="22" width="68" height="16" rx="2"
+            fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <rect x="6" y="6" width="68" height="14" rx="2"
+            fill="none" stroke="#ffffff" stroke-width="1.3" opacity="0.55"/>
+      <line x1="6" y1="58" x2="74" y2="58" stroke="#ffffff" stroke-width="0.8" opacity="0.25"/>
+      <!-- vertical dividers in top two rows -->
+      <line x1="28" y1="22" x2="28" y2="38" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+      <line x1="50" y1="22" x2="50" y2="38" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+      <line x1="28" y1="40" x2="28" y2="56" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+      <line x1="50" y1="40" x2="50" y2="56" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+      <circle cx="17" cy="70" r="2.5" fill="#ffffff" opacity="0.5"/>
+      <circle cx="40" cy="70" r="2.5" fill="#ffffff" opacity="0.35"/>
+      <circle cx="63" cy="70" r="2.5" fill="#ffffff" opacity="0.25"/>
+    </symbol>
+
+    <!-- MinIO: storage cylinder with M chevron -->
+    <symbol id="minio" viewBox="0 0 60 60">
+      <ellipse cx="30" cy="14" rx="24" ry="9" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <line x1="6"  y1="14" x2="6"  y2="46" stroke="#ffffff" stroke-width="1.5"/>
+      <line x1="54" y1="14" x2="54" y2="46" stroke="#ffffff" stroke-width="1.5"/>
+      <ellipse cx="30" cy="46" rx="24" ry="9" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <ellipse cx="30" cy="30" rx="24" ry="9" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.4"/>
+      <!-- M chevron inside -->
+      <polyline points="14,42 14,30 30,38 46,30 46,42"
+                fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.75" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Inventory file: document with lines -->
+    <symbol id="inventory" viewBox="0 0 44 54">
+      <path d="M6 2 L32 2 L42 14 L42 52 L6 52 Z"
+            fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <path d="M32 2 L32 14 L42 14" fill="none" stroke="#ffffff" stroke-width="1"/>
+      <line x1="13" y1="22" x2="35" y2="22" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+      <line x1="13" y1="30" x2="35" y2="30" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+      <line x1="13" y1="38" x2="28" y2="38" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+      <line x1="13" y1="44" x2="22" y2="44" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    </symbol>
+  </defs>
+
+  <!-- ── Layer 1: Background ── -->
+  <rect width="1920" height="600" fill="url(#bgGrad)"/>
+
+  <!-- ── Layer 2: Spotlight ── -->
+  <rect width="100%" height="100%" fill="url(#spotlight)"/>
+
+  <!-- ── Layer 3: Isometric grid ── -->
+  <rect width="100%" height="100%" fill="url(#isoGrid)" opacity="0.6"/>
+
+  <!-- ── Layer 4: Ambient background elements (very faint) ── -->
+
+  <!-- Ghost icons scattered around -->
+  <use href="#lxc"       x="60"   y="80"  width="45" height="45" opacity="0.04"/>
+  <use href="#docker"    x="110"  y="390" width="38" height="38" opacity="0.04"/>
+  <use href="#terraform" x="1730" y="70"  width="42" height="42" opacity="0.04"/>
+  <use href="#ansible"   x="1790" y="380" width="38" height="38" opacity="0.04"/>
+  <use href="#minio"     x="1640" y="460" width="32" height="32" opacity="0.04"/>
+  <use href="#lxc"       x="1500" y="60"  width="35" height="35" opacity="0.03"/>
+
+  <!-- Ambient decorative background code -->
+  <text x="1430" y="108" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.07">resource "proxmox_lxc" "container" {</text>
+  <text x="1445" y="124" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">  hostname = var.hostname</text>
+  <text x="1445" y="140" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.05">  cores    = var.cores</text>
+  <text x="1445" y="156" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.04">  memory   = var.memory</text>
+
+  <text x="90"  y="108" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.07">terraform {</text>
+  <text x="100" y="124" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">  backend "s3" {</text>
+  <text x="110" y="140" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.05">    endpoint = "https://minio:9000"</text>
+  <text x="110" y="156" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.04">    bucket   = "terraform-state"</text>
+
+  <!-- Slow rotating ambient rings centred on the canvas -->
+  <g opacity="0.05" filter="url(#softGlow)">
+    <circle cx="960" cy="270" r="210" fill="none" stroke="#ffffff" stroke-width="0.5" stroke-dasharray="5 10">
+      <animateTransform attributeName="transform" type="rotate"
+                        from="0 960 270" to="360 960 270" dur="100s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="960" cy="270" r="310" fill="none" stroke="#ffffff" stroke-width="0.3" stroke-dasharray="2 14">
+      <animateTransform attributeName="transform" type="rotate"
+                        from="360 960 270" to="0 960 270" dur="140s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ── Layer 5: Flow connection lines ── -->
+
+  <!-- Terraform (right edge ≈ x=345) → LXC (left edge ≈ x=595) -->
+  <line x1="346" y1="245" x2="593" y2="245"
+        stroke="#ffffff" stroke-width="1.2" opacity="0.35"
+        filter="url(#softGlow)" marker-end="url(#arrow)"/>
+
+  <!-- LXC (right edge ≈ x=685) → inventory icon -->
+  <line x1="686" y1="245" x2="820" y2="245"
+        stroke="#ffffff" stroke-width="1" opacity="0.3"
+        marker-end="url(#arrow)"/>
+
+  <!-- inventory → Ansible (left edge ≈ x=935) -->
+  <line x1="860" y1="245" x2="933" y2="245"
+        stroke="#ffffff" stroke-width="1" opacity="0.3"
+        marker-end="url(#arrow)"/>
+
+  <!-- Ansible (right edge ≈ x=1025) → Docker (left edge ≈ x=1275) -->
+  <line x1="1026" y1="245" x2="1273" y2="245"
+        stroke="#ffffff" stroke-width="1.2" opacity="0.35"
+        filter="url(#softGlow)" marker-end="url(#arrow)"/>
+
+  <!-- Terraform center (x=300, y=290) ↓ MinIO (top ≈ y=400) – dashed state backend link -->
+  <line x1="300" y1="292" x2="300" y2="402"
+        stroke="#ffffff" stroke-width="0.8" opacity="0.25"
+        stroke-dasharray="4 5" marker-end="url(#arrowFaint)"/>
+
+  <!-- ── Animated data packets ── -->
+  <!-- Packet: Terraform → LXC -->
+  <circle r="3" fill="#ffffff" opacity="0.8" filter="url(#glow)">
+    <animateMotion dur="2.8s" repeatCount="indefinite"
+                   path="M346,245 L593,245"/>
+  </circle>
+  <!-- Packet: LXC → Ansible (delayed) -->
+  <circle r="3" fill="#ffffff" opacity="0.8" filter="url(#glow)">
+    <animateMotion dur="2.8s" begin="0.9s" repeatCount="indefinite"
+                   path="M686,245 L933,245"/>
+  </circle>
+  <!-- Packet: Ansible → Docker (delayed more) -->
+  <circle r="3" fill="#ffffff" opacity="0.8" filter="url(#glow)">
+    <animateMotion dur="2.8s" begin="1.8s" repeatCount="indefinite"
+                   path="M1026,245 L1273,245"/>
+  </circle>
+
+  <!-- ── Layer 6: Main pipeline elements ── -->
+
+  <!-- 1. Terraform  (center x=300, y=245) -->
+  <g filter="url(#glow)" opacity="0.85">
+    <use href="#terraform" x="256" y="201" width="90" height="90"/>
+  </g>
+  <text x="300" y="315" text-anchor="middle" fill="#ffffff"
+        font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">terraform</text>
+
+  <!-- 2. Proxmox LXC  (center x=640, y=245) — focal element -->
+  <g filter="url(#strongGlow)" opacity="0.9">
+    <use href="#lxc" x="596" y="201" width="90" height="90"/>
+  </g>
+  <!-- subtle pulse ring -->
+  <circle cx="641" cy="246" r="58" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08">
+    <animate attributeName="r"       values="52;64;52" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.08;0.04;0.08" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="641" y="315" text-anchor="middle" fill="#ffffff"
+        font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">proxmox lxc</text>
+
+  <!-- 3. Inventory file icon  (center x=840, y=245) -->
+  <g opacity="0.5">
+    <use href="#inventory" x="818" y="218" width="44" height="54"/>
+  </g>
+  <text x="840" y="286" text-anchor="middle" fill="#ffffff"
+        font-family="'SF Mono', Monaco, monospace" font-size="8" opacity="0.35">inventory.ini</text>
+
+  <!-- 4. Ansible  (center x=980, y=245) -->
+  <g filter="url(#glow)" opacity="0.85">
+    <use href="#ansible" x="936" y="201" width="90" height="90"/>
+  </g>
+  <text x="981" y="315" text-anchor="middle" fill="#ffffff"
+        font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">ansible</text>
+
+  <!-- 5. Docker  (center x=1320, y=245) -->
+  <g filter="url(#glow)" opacity="0.85">
+    <use href="#docker" x="1276" y="201" width="90" height="90"/>
+  </g>
+  <text x="1321" y="315" text-anchor="middle" fill="#ffffff"
+        font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">docker</text>
+
+  <!-- 6. MinIO state backend  (center x=300, y=435) -->
+  <g filter="url(#glow)" opacity="0.55">
+    <use href="#minio" x="265" y="400" width="70" height="70"/>
+  </g>
+  <text x="300" y="484" text-anchor="middle" fill="#ffffff"
+        font-family="'SF Mono', Monaco, monospace" font-size="9" opacity="0.32">minio · tf state</text>
+
+  <!-- "state backend" label on the dashed vertical line -->
+  <text x="318" y="350" fill="#ffffff"
+        font-family="'SF Mono', Monaco, monospace" font-size="8" opacity="0.28">state</text>
+
+  <!-- ── Layer 7: Corner brackets & edge decorations ── -->
+  <g opacity="0.15">
+    <path d="M20 20 L20 70 M20 20 L70 20"   fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 20 L1900 70 M1900 20 L1850 20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M20 580 L20 530 M20 580 L70 580"    fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 580 L1900 530 M1900 580 L1850 580" fill="none" stroke="#ffffff" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.15">
+    <line x1="50"   y1="550" x2="250"  y2="550" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="260" cy="550" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1670" y1="550" x2="1870" y2="550" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="1660" cy="550" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <!-- ── Layer 8: Ambient CLI text strip ── -->
+  <text x="90"  y="540" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="11" opacity="0.32">terraform apply</text>
+  <text x="370" y="558" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="11" opacity="0.22"># writes ansible/inventory/prod/.../inventory.ini</text>
+  <text x="830" y="548" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="11" opacity="0.28">ansible-playbook deploy-openwebui-searxng.yml</text>
+  <text x="1380" y="540" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="11" opacity="0.24">docker compose up -d</text>
+
+  <!-- ── Layer 9: Noise texture ── -->
+  <rect width="100%" height="100%" fill="transparent" filter="url(#noise)"/>
+
+  <!-- ── Layer 10: Scanlines (very subtle) ── -->
+  <g opacity="0.02">
+    <rect width="100%" height="100%" fill="url(#scanlines)"/>
+  </g>
+</svg>

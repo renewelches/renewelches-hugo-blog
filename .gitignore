@@ -15,3 +15,6 @@ public/
 
 # Hugo cache
 resources/_gen/
+
+# direnv - contains secrets
+.envrc
