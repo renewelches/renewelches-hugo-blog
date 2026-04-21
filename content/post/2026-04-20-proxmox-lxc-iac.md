@@ -23,7 +23,7 @@ I have been tinkering with the best way to manage my homelab for a while now —
 
 ## The Community Scripts Phase
 
-If you've spent any time in the Proxmox world, you've probably come across the [Proxmox community scripts](https://community-scripts.github.io/ProxmoxVE/). They are genuinely great for getting something running quickly or for kicking the tires on a new service. Spin up a container, run a script, done. Fast. Easy. Zero thinking required.
+If you've spent any time in the Proxmox world, you've probably come across the [Proxmox community scripts](https://community-scripts.github.io/ProxmoxVE/). They are genuinely great for getting something running quickly or just trying out a new service. Spin up a container, run a script, done. Fast. Easy. Zero thinking required.
 
 The problem is that zero thinking required also means zero repeatability, zero auditability, and zero IaC satisfaction. Coming from a background where infrastructure is code — not a series of bash scripts you ran once and hope you remember the options for — this was never going to stick for me long-term.
 
@@ -31,13 +31,13 @@ The problem is that zero thinking required also means zero repeatability, zero a
 
 So I went the other direction: pure Terraform with `remote-exec` provisioners. Provision the LXC, SSH in, install things. It worked fine for the initial setup. Terraform would create the container on Proxmox, run the provisioner, and you had a running service.
 
-The cracks started showing the moment I wanted to *update* something. Terraform's `remote-exec` is designed for provisioning, not configuration management. Re-running it to change a config value or bump a container image isn't really what it's there for. I was essentially using a Swiss Army knife to do surgery.
+The cracks started showing the moment I wanted to _update_ something. Terraform's `remote-exec` is designed for provisioning, not configuration management. Re-running it to change a config value or bump a container image isn't really what it's there for.
 
 ## The Terraform + Ansible Setup
 
 The current setup is a two-tier workflow that keeps concerns properly separated:
 
-1. **Terraform** provisions the LXC containers on Proxmox and writes out an `inventory.ini` file.
+1. **Terraform** provisions the LXC containers on Proxmox and writes out an Ansible `inventory.ini` file.
 2. **Ansible** picks up that inventory and deploys Docker containers into the LXC containers.
 
 Keeping these two layers separate means I can re-provision infrastructure without touching service config, and re-deploy services without touching Proxmox. Each stack is fully independent with its own Terraform state, so I can deploy services à la carte — no need to apply the whole thing if I just want to spin up one new service.
@@ -95,7 +95,7 @@ terraform {
 }
 ```
 
-State locking comes for free via MinIO's versioning. Create the bucket, enable versioning, and you've got a self-hosted backend that keeps multiple machines in sync and doesn't silently lose your state when you accidentally `rm -rf` the wrong folder.
+State locking comes for free via MinIO's versioning. Create the bucket, enable versioning, and you've got a self-hosted backend that keeps multiple machines in sync and doesn't silently lose your state when you accidentally `rm -rf` the wrong folder. And don't forget to backup your MinIO LXC.
 
 ### The MinIO Bootstrap Problem
 
@@ -105,15 +105,15 @@ There's one catch: you can't use MinIO as your Terraform backend before MinIO ex
 
 The repo currently supports the following services, each as an independent deployable stack:
 
-| Stack | What it does |
-|---|---|
-| `minio` | S3-compatible object storage — deploy this first |
-| `openwebui-searxng` | Open WebUI (LLM frontend) + SearXNG (private search) |
-| `prometheus-grafana` | Prometheus metrics + Grafana dashboards |
-| `forgejo` | Self-hosted Git service (HTTPS + SSH) |
-| `n8n` | Workflow automation platform |
-| `termix` | Web-based terminal manager |
-| `claude-code` | Claude Code CLI environment |
+| Stack                | What it does                                         |
+| -------------------- | ---------------------------------------------------- |
+| `minio`              | S3-compatible object storage — deploy this first     |
+| `openwebui-searxng`  | Open WebUI (LLM frontend) + SearXNG (private search) |
+| `prometheus-grafana` | Prometheus metrics + Grafana dashboards              |
+| `forgejo`            | Self-hosted Git service (HTTPS + SSH)                |
+| `n8n`                | Workflow automation platform                         |
+| `termix`             | Web-based terminal manager                           |
+| `claude-code`        | Claude Code CLI environment                          |
 
 More stacks will get added over time as I move more services under IaC management.
 
