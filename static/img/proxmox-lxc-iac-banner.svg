@@ -203,27 +203,27 @@
   <!-- ── Layer 5: Flow connection lines ── -->
 
   <!-- Terraform (right edge ≈ x=345) → LXC (left edge ≈ x=595) -->
-  <line x1="346" y1="245" x2="593" y2="245"
+  <line x1="346" y1="434" x2="593" y2="434"
         stroke="#ffffff" stroke-width="1.2" opacity="0.35"
         filter="url(#softGlow)" marker-end="url(#arrow)"/>
 
   <!-- LXC (right edge ≈ x=685) → inventory icon -->
-  <line x1="686" y1="245" x2="820" y2="245"
+  <line x1="686" y1="434" x2="820" y2="434"
         stroke="#ffffff" stroke-width="1" opacity="0.3"
         marker-end="url(#arrow)"/>
 
   <!-- inventory → Ansible (left edge ≈ x=935) -->
-  <line x1="860" y1="245" x2="933" y2="245"
+  <line x1="860" y1="434" x2="933" y2="434"
         stroke="#ffffff" stroke-width="1" opacity="0.3"
         marker-end="url(#arrow)"/>
 
   <!-- Ansible (right edge ≈ x=1025) → Docker (left edge ≈ x=1275) -->
-  <line x1="1026" y1="245" x2="1273" y2="245"
+  <line x1="1026" y1="434" x2="1273" y2="434"
         stroke="#ffffff" stroke-width="1.2" opacity="0.35"
         filter="url(#softGlow)" marker-end="url(#arrow)"/>
 
-  <!-- Terraform center (x=300, y=290) ↓ MinIO (top ≈ y=400) – dashed state backend link -->
-  <line x1="300" y1="292" x2="300" y2="402"
+  <!-- Terraform top ↑ MinIO (bottom ≈ y=281) – dashed state backend link -->
+  <line x1="300" y1="388" x2="300" y2="283"
         stroke="#ffffff" stroke-width="0.8" opacity="0.25"
         stroke-dasharray="4 5" marker-end="url(#arrowFaint)"/>
 
@@ -231,70 +231,70 @@
   <!-- Packet: Terraform → LXC -->
   <circle r="3" fill="#ffffff" opacity="0.8" filter="url(#glow)">
     <animateMotion dur="2.8s" repeatCount="indefinite"
-                   path="M346,245 L593,245"/>
+                   path="M346,434 L593,434"/>
   </circle>
   <!-- Packet: LXC → Ansible (delayed) -->
   <circle r="3" fill="#ffffff" opacity="0.8" filter="url(#glow)">
     <animateMotion dur="2.8s" begin="0.9s" repeatCount="indefinite"
-                   path="M686,245 L933,245"/>
+                   path="M686,434 L933,434"/>
   </circle>
   <!-- Packet: Ansible → Docker (delayed more) -->
   <circle r="3" fill="#ffffff" opacity="0.8" filter="url(#glow)">
     <animateMotion dur="2.8s" begin="1.8s" repeatCount="indefinite"
-                   path="M1026,245 L1273,245"/>
+                   path="M1026,434 L1273,434"/>
   </circle>
 
   <!-- ── Layer 6: Main pipeline elements ── -->
 
-  <!-- 1. Terraform  (center x=300, y=245) -->
+  <!-- 1. Terraform  (center x=300, y=435) -->
   <g filter="url(#glow)" opacity="0.85">
-    <use href="#terraform" x="256" y="201" width="90" height="90"/>
+    <use href="#terraform" x="256" y="390" width="90" height="90"/>
   </g>
-  <text x="300" y="315" text-anchor="middle" fill="#ffffff"
+  <text x="300" y="504" text-anchor="middle" fill="#ffffff"
         font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">terraform</text>
 
-  <!-- 2. Proxmox LXC  (center x=640, y=245) — focal element -->
+  <!-- 2. Proxmox LXC  (center x=640, y=435) — focal element -->
   <g filter="url(#strongGlow)" opacity="0.9">
-    <use href="#lxc" x="596" y="201" width="90" height="90"/>
+    <use href="#lxc" x="596" y="390" width="90" height="90"/>
   </g>
   <!-- subtle pulse ring -->
-  <circle cx="641" cy="246" r="58" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08">
+  <circle cx="641" cy="435" r="58" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08">
     <animate attributeName="r"       values="52;64;52" dur="4s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.08;0.04;0.08" dur="4s" repeatCount="indefinite"/>
   </circle>
-  <text x="641" y="315" text-anchor="middle" fill="#ffffff"
+  <text x="641" y="504" text-anchor="middle" fill="#ffffff"
         font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">proxmox lxc</text>
 
-  <!-- 3. Inventory file icon  (center x=840, y=245) -->
+  <!-- 3. Inventory file icon  (center x=840, y=435) -->
   <g opacity="0.5">
-    <use href="#inventory" x="818" y="218" width="44" height="54"/>
+    <use href="#inventory" x="818" y="407" width="44" height="54"/>
   </g>
-  <text x="840" y="286" text-anchor="middle" fill="#ffffff"
+  <text x="840" y="475" text-anchor="middle" fill="#ffffff"
         font-family="'SF Mono', Monaco, monospace" font-size="8" opacity="0.35">inventory.ini</text>
 
-  <!-- 4. Ansible  (center x=980, y=245) -->
+  <!-- 4. Ansible  (center x=980, y=435) -->
   <g filter="url(#glow)" opacity="0.85">
-    <use href="#ansible" x="936" y="201" width="90" height="90"/>
+    <use href="#ansible" x="936" y="390" width="90" height="90"/>
   </g>
-  <text x="981" y="315" text-anchor="middle" fill="#ffffff"
+  <text x="981" y="504" text-anchor="middle" fill="#ffffff"
         font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">ansible</text>
 
-  <!-- 5. Docker  (center x=1320, y=245) -->
+  <!-- 5. Docker  (center x=1320, y=435) -->
   <g filter="url(#glow)" opacity="0.85">
-    <use href="#docker" x="1276" y="201" width="90" height="90"/>
+    <use href="#docker" x="1276" y="390" width="90" height="90"/>
   </g>
-  <text x="1321" y="315" text-anchor="middle" fill="#ffffff"
+  <text x="1321" y="504" text-anchor="middle" fill="#ffffff"
         font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.45">docker</text>
 
-  <!-- 6. MinIO state backend  (center x=300, y=435) -->
+  <!-- 6. MinIO state backend  (center x=300, y=246) -->
   <g filter="url(#glow)" opacity="0.55">
-    <use href="#minio" x="265" y="400" width="70" height="70"/>
+    <use href="#minio" x="265" y="211" width="70" height="70"/>
   </g>
-  <text x="300" y="484" text-anchor="middle" fill="#ffffff"
+  <text x="300" y="295" text-anchor="middle" fill="#ffffff"
         font-family="'SF Mono', Monaco, monospace" font-size="9" opacity="0.32">minio · tf state</text>
 
   <!-- "state backend" label on the dashed vertical line -->
-  <text x="318" y="350" fill="#ffffff"
+  <text x="318" y="335" fill="#ffffff"
         font-family="'SF Mono', Monaco, monospace" font-size="8" opacity="0.28">state</text>
 
   <!-- ── Layer 7: Corner brackets & edge decorations ── -->
