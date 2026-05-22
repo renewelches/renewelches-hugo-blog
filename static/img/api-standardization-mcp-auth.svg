@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080808"/>
+      <stop offset="40%" style="stop-color:#0f0f0f"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.03"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply" result="blend"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.10"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="blend" mode="overlay"/>
+    </filter>
+
+    <!-- Patterns -->
+    <pattern id="constellation" patternUnits="userSpaceOnUse" width="300" height="300">
+      <circle cx="50" cy="50" r="1" fill="#ffffff" opacity="0.3"/>
+      <circle cx="150" cy="80" r="1.2" fill="#ffffff" opacity="0.25"/>
+      <circle cx="250" cy="40" r="0.8" fill="#ffffff" opacity="0.2"/>
+      <circle cx="100" cy="180" r="1" fill="#ffffff" opacity="0.25"/>
+      <circle cx="200" cy="150" r="1.5" fill="#ffffff" opacity="0.3"/>
+      <circle cx="280" cy="200" r="1" fill="#ffffff" opacity="0.2"/>
+      <circle cx="30" cy="250" r="1" fill="#ffffff" opacity="0.2"/>
+      <circle cx="180" cy="270" r="1.2" fill="#ffffff" opacity="0.25"/>
+      <line x1="50" y1="50" x2="150" y2="80" stroke="#ffffff" stroke-width="0.3" opacity="0.1"/>
+      <line x1="150" y1="80" x2="200" y2="150" stroke="#ffffff" stroke-width="0.3" opacity="0.1"/>
+      <line x1="100" y1="180" x2="200" y2="150" stroke="#ffffff" stroke-width="0.3" opacity="0.1"/>
+      <line x1="200" y1="150" x2="280" y2="200" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+    </pattern>
+    <pattern id="grid" patternUnits="userSpaceOnUse" width="50" height="50">
+      <line x1="0" y1="50" x2="50" y2="50" stroke="#ffffff" stroke-width="0.3" opacity="0.05"/>
+      <line x1="50" y1="0" x2="50" y2="50" stroke="#ffffff" stroke-width="0.3" opacity="0.05"/>
+    </pattern>
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="1920" height="3">
+      <line x1="0" y1="0" x2="1920" y2="0" stroke="#ffffff" stroke-width="1"/>
+    </pattern>
+
+    <!-- Symbols -->
+    <symbol id="agent-node" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <circle cx="22" cy="22" r="9" fill="none" stroke="#ffffff" stroke-width="1"/>
+      <circle cx="22" cy="22" r="3" fill="#ffffff"/>
+    </symbol>
+
+    <symbol id="shield" viewBox="0 0 60 72">
+      <path d="M30 2 L58 14 L58 36 C58 56 30 70 30 70 C30 70 2 56 2 36 L2 14 Z"
+            fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M19 36 L27 44 L41 26" fill="none" stroke="#ffffff" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="server" viewBox="0 0 80 100">
+      <rect x="5" y="5" width="70" height="90" rx="4" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <rect x="12" y="15" width="56" height="12" rx="2" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+      <rect x="12" y="32" width="56" height="12" rx="2" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+      <rect x="12" y="49" width="56" height="12" rx="2" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+      <circle cx="20" cy="75" r="3" fill="#ffffff"/>
+      <circle cx="32" cy="75" r="3" fill="#ffffff" opacity="0.5"/>
+      <circle cx="44" cy="75" r="3" fill="#ffffff" opacity="0.3"/>
+    </symbol>
+
+    <symbol id="cloud" viewBox="0 0 80 54">
+      <path d="M64 44 C74 44 78 36 72 28 C76 18 66 10 56 14 C50 4 36 4 30 12 C20 8 10 16 14 28
+               C4 30 6 44 18 46 L64 46 C70 46 68 44 64 44"
+            fill="none" stroke="#ffffff" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="token-badge" viewBox="0 0 90 32">
+      <rect x="1" y="1" width="88" height="30" rx="5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+      <text x="45" y="21" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.75">Bearer JWT</text>
+    </symbol>
+  </defs>
+
+  <!-- 1. Background -->
+  <rect width="1920" height="600" fill="url(#bgGrad)"/>
+  <rect width="1920" height="600" fill="url(#spotlight)"/>
+
+  <!-- 2. Background patterns -->
+  <rect width="1920" height="600" fill="url(#constellation)"/>
+  <rect width="1920" height="600" fill="url(#grid)"/>
+
+  <!-- 3. Ambient decorative background code -->
+  <text x="90" y="78" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">grant_type=urn:ietf:params:oauth:grant-type:token-exchange</text>
+  <text x="1380" y="95" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">/.well-known/oauth-protected-resource</text>
+  <text x="220" y="525" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">scope: loan:credit:check loan:applicant:read</text>
+  <text x="1310" y="505" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">aud: mcp-server-enterprise</text>
+  <text x="860" y="58" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">sub: user@enterprise.com  exp: 1748922000  iat: 1748918400</text>
+  <text x="580" y="545" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...</text>
+  <text x="110" y="415" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.05">orchestrator.spawn(sub_agent, scope=task_scope)</text>
+  <text x="1620" y="185" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="10" opacity="0.06">POST /token</text>
+
+  <!-- 4. Left: Agent cluster (orchestrator + sub-agents) -->
+  <!-- Internal dashed lines between agents -->
+  <g opacity="0.18" filter="url(#softGlow)">
+    <line x1="192" y1="272" x2="104" y2="338" stroke="#ffffff" stroke-width="1" stroke-dasharray="3,5"/>
+    <line x1="210" y1="274" x2="238" y2="356" stroke="#ffffff" stroke-width="1" stroke-dasharray="3,5"/>
+    <line x1="183" y1="240" x2="97" y2="186" stroke="#ffffff" stroke-width="1" stroke-dasharray="3,5"/>
+  </g>
+
+  <!-- Risk agent (top-left, faint) -->
+  <g opacity="0.28" filter="url(#glow)">
+    <use href="#agent-node" x="60" y="152" width="40" height="40"/>
+  </g>
+  <text x="80" y="208" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.25">risk</text>
+
+  <!-- Intake agent (bottom-left) -->
+  <g opacity="0.32" filter="url(#glow)">
+    <use href="#agent-node" x="72" y="328" width="46" height="46"/>
+  </g>
+  <text x="95" y="392" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.28">intake</text>
+
+  <!-- Credit-check agent (bottom-right of cluster) -->
+  <g opacity="0.32" filter="url(#glow)">
+    <use href="#agent-node" x="210" y="348" width="46" height="46"/>
+  </g>
+  <text x="233" y="412" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.28">credit-check</text>
+
+  <!-- Orchestrator (main, center of cluster) -->
+  <g opacity="0.52" filter="url(#glow)">
+    <use href="#agent-node" x="158" y="218" width="64" height="64"/>
+  </g>
+  <text x="190" y="302" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.4">orchestrator</text>
+
+  <!-- 5. Connection flow lines -->
+  <!-- Agents → Auth Server -->
+  <line x1="222" y1="250" x2="578" y2="250" stroke="#ffffff" stroke-width="1" opacity="0.25" filter="url(#softGlow)" stroke-dasharray="6,5"/>
+  <!-- Auth Server → Shield -->
+  <line x1="710" y1="250" x2="882" y2="250" stroke="#ffffff" stroke-width="1.2" opacity="0.3" filter="url(#softGlow)" stroke-dasharray="6,5"/>
+  <!-- Shield → MCP Hexagon -->
+  <line x1="1038" y1="250" x2="1182" y2="250" stroke="#ffffff" stroke-width="1.2" opacity="0.35" filter="url(#softGlow)" stroke-dasharray="6,5"/>
+  <!-- MCP Hexagon → Backend Server -->
+  <line x1="1318" y1="250" x2="1468" y2="250" stroke="#ffffff" stroke-width="1" opacity="0.28" filter="url(#softGlow)" stroke-dasharray="6,5"/>
+  <!-- Backend Server → Cloud -->
+  <line x1="1558" y1="250" x2="1698" y2="250" stroke="#ffffff" stroke-width="1" opacity="0.22" filter="url(#softGlow)" stroke-dasharray="6,5"/>
+
+  <!-- Animated data packets -->
+  <circle r="4" fill="#ffffff" opacity="0.75" filter="url(#glow)">
+    <animateMotion dur="3.2s" repeatCount="indefinite" path="M222,250 L578,250"/>
+  </circle>
+  <circle r="3.5" fill="#ffffff" opacity="0.7" filter="url(#glow)">
+    <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s" path="M710,250 L882,250"/>
+  </circle>
+  <circle r="3.5" fill="#ffffff" opacity="0.7" filter="url(#glow)">
+    <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.3s" path="M1038,250 L1182,250"/>
+  </circle>
+  <circle r="3" fill="#ffffff" opacity="0.6" filter="url(#glow)">
+    <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s" path="M1318,250 L1468,250"/>
+  </circle>
+  <circle r="3" fill="#ffffff" opacity="0.5" filter="url(#glow)">
+    <animateMotion dur="3.5s" repeatCount="indefinite" begin="2.2s" path="M1558,250 L1698,250"/>
+  </circle>
+
+  <!-- 6. Main composition elements -->
+
+  <!-- Auth Server: concentric rings with slow rotation -->
+  <circle cx="644" cy="250" r="60" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.25" stroke-dasharray="5,10">
+    <animateTransform attributeName="transform" type="rotate" from="0 644 250" to="360 644 250" dur="70s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="644" cy="250" r="44" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="644" cy="250" r="28" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.4" filter="url(#glow)"/>
+  <circle cx="644" cy="250" r="9" fill="#ffffff" opacity="0.7" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.7;0.4;0.7" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Tick marks at cardinal points -->
+  <g opacity="0.35">
+    <line x1="644" y1="186" x2="644" y2="196" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="644" y1="304" x2="644" y2="314" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="580" y1="250" x2="590" y2="250" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="698" y1="250" x2="708" y2="250" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+  <text x="644" y="335" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.38">auth-server</text>
+
+  <!-- Outer rotating rings around shield (focal) -->
+  <circle cx="960" cy="250" r="115" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.12" stroke-dasharray="4,12">
+    <animateTransform attributeName="transform" type="rotate" from="0 960 250" to="360 960 250" dur="50s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="960" cy="250" r="95" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.10" stroke-dasharray="2,18">
+    <animateTransform attributeName="transform" type="rotate" from="360 960 250" to="0 960 250" dur="90s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Shield — central focal element -->
+  <g filter="url(#strongGlow)" opacity="0.88">
+    <use href="#shield" x="930" y="174" width="60" height="72"/>
+  </g>
+  <text x="960" y="278" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.45">token-exchange</text>
+
+  <!-- Floating JWT token badges near shield -->
+  <g opacity="0.32" filter="url(#glow)">
+    <use href="#token-badge" x="820" y="148" width="90" height="32"/>
+  </g>
+  <g opacity="0.28" filter="url(#glow)">
+    <use href="#token-badge" x="1010" y="136" width="90" height="32"/>
+  </g>
+
+  <!-- MCP Server: hexagon -->
+  <g opacity="0.58" filter="url(#glow)">
+    <polygon points="1250,192 1298,220 1298,280 1250,308 1202,280 1202,220" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <polygon points="1250,206 1284,226 1284,274 1250,294 1216,274 1216,226" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    <text x="1250" y="255" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="12" text-anchor="middle" opacity="0.8">MCP</text>
+  </g>
+  <text x="1250" y="335" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.38">mcp-server</text>
+
+  <!-- Backend API server -->
+  <g opacity="0.42" filter="url(#glow)">
+    <use href="#server" x="1470" y="196" width="76" height="96"/>
+  </g>
+  <text x="1508" y="312" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.32">backend-api</text>
+
+  <!-- Cloud / services -->
+  <g opacity="0.28" filter="url(#glow)">
+    <use href="#cloud" x="1698" y="222" width="90" height="60"/>
+  </g>
+  <text x="1743" y="305" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="9" text-anchor="middle" opacity="0.22">services</text>
+
+  <!-- 7. Corner brackets -->
+  <g opacity="0.15">
+    <path d="M20 20 L20 70 M20 20 L70 20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 20 L1900 70 M1900 20 L1850 20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M20 580 L20 530 M20 580 L70 580" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 580 L1900 530 M1900 580 L1850 580" fill="none" stroke="#ffffff" stroke-width="2"/>
+  </g>
+  <g opacity="0.15">
+    <line x1="50" y1="550" x2="250" y2="550" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="260" cy="550" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1670" y1="550" x2="1870" y2="550" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="1660" cy="550" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <!-- 8. Bottom ambient CLI text -->
+  <text x="80" y="568" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="11" opacity="0.32">$ mcp connect --server https://api.enterprise.com/mcp --auth oauth2</text>
+  <text x="960" y="568" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="11" opacity="0.28" text-anchor="middle">OAuth 2.1 · PKCE · RFC 8693 OBO · RFC 9728</text>
+  <text x="1840" y="568" fill="#ffffff" font-family="'SF Mono', Monaco, monospace" font-size="11" opacity="0.22" text-anchor="end">v2025-03-26</text>
+
+  <!-- 9. Noise texture -->
+  <rect width="100%" height="100%" fill="transparent" filter="url(#noise)"/>
+
+  <!-- 10. Scanlines -->
+  <rect width="100%" height="100%" fill="url(#scanlines)" opacity="0.02"/>
+</svg>
