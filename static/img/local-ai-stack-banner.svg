@@ -1,0 +1,283 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080808"/>
+      <stop offset="45%" style="stop-color:#101010"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+
+    <radialGradient id="spotlight" cx="32%" cy="50%" r="55%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.045"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    </radialGradient>
+
+    <radialGradient id="spotlightRight" cx="75%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.03"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    </radialGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply" result="blend"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.10"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="blend" mode="overlay"/>
+    </filter>
+
+    <pattern id="circuit" patternUnits="userSpaceOnUse" width="100" height="100">
+      <line x1="0" y1="50" x2="40" y2="50" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <line x1="50" y1="0" x2="50" y2="40" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <circle cx="50" cy="50" r="3" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <line x1="60" y1="50" x2="100" y2="50" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <line x1="50" y1="60" x2="50" y2="100" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+
+    <pattern id="constellation" patternUnits="userSpaceOnUse" width="360" height="360">
+      <circle cx="60" cy="60" r="1" fill="#ffffff" opacity="0.22"/>
+      <circle cx="180" cy="90" r="1.2" fill="#ffffff" opacity="0.18"/>
+      <circle cx="300" cy="50" r="0.8" fill="#ffffff" opacity="0.16"/>
+      <circle cx="120" cy="210" r="1" fill="#ffffff" opacity="0.2"/>
+      <circle cx="240" cy="170" r="1.4" fill="#ffffff" opacity="0.22"/>
+      <circle cx="330" cy="260" r="1" fill="#ffffff" opacity="0.18"/>
+      <circle cx="70" cy="310" r="0.9" fill="#ffffff" opacity="0.18"/>
+    </pattern>
+
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ffffff" opacity="0.55"/>
+    </marker>
+
+    <symbol id="macmini" viewBox="0 0 180 110">
+      <rect x="6" y="10" width="168" height="78" rx="14" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+      <rect x="6" y="10" width="168" height="78" rx="14" fill="#ffffff" opacity="0.04"/>
+      <line x1="14" y1="80" x2="166" y2="80" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+      <circle cx="155" cy="74" r="2.5" fill="#ffffff"/>
+      <circle cx="155" cy="74" r="5" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.4"/>
+      <ellipse cx="90" cy="98" rx="60" ry="3" fill="#ffffff" opacity="0.08"/>
+      <text x="20" y="34" fill="#ffffff" font-family="'SF Mono', monospace" font-size="11" opacity="0.55">mac-mini.local</text>
+      <text x="20" y="52" fill="#ffffff" font-family="'SF Mono', monospace" font-size="9" opacity="0.4">M4 Pro · 48 GB</text>
+      <text x="20" y="66" fill="#ffffff" font-family="'SF Mono', monospace" font-size="9" opacity="0.4">ollama · docling · caddy</text>
+    </symbol>
+
+    <symbol id="lxc" viewBox="0 0 110 80">
+      <rect x="4" y="4" width="102" height="72" rx="6" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <line x1="4" y1="20" x2="106" y2="20" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+      <circle cx="13" cy="12" r="2" fill="#ffffff" opacity="0.55"/>
+      <circle cx="21" cy="12" r="2" fill="#ffffff" opacity="0.55"/>
+      <circle cx="29" cy="12" r="2" fill="#ffffff" opacity="0.55"/>
+      <rect x="14" y="30" width="38" height="38" rx="3" fill="#ffffff" opacity="0.18"/>
+      <rect x="58" y="30" width="38" height="38" rx="3" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.55"/>
+      <line x1="62" y1="40" x2="92" y2="40" stroke="#ffffff" stroke-width="0.6" opacity="0.5"/>
+      <line x1="62" y1="48" x2="86" y2="48" stroke="#ffffff" stroke-width="0.6" opacity="0.4"/>
+      <line x1="62" y1="56" x2="90" y2="56" stroke="#ffffff" stroke-width="0.6" opacity="0.4"/>
+    </symbol>
+
+    <symbol id="search" viewBox="0 0 60 60">
+      <circle cx="25" cy="25" r="16" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <line x1="36" y1="36" x2="52" y2="52" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="25" cy="25" r="6" fill="#ffffff" opacity="0.25"/>
+    </symbol>
+
+    <symbol id="doc" viewBox="0 0 48 60">
+      <path d="M6 4 L34 4 L42 12 L42 56 L6 56 Z" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <path d="M34 4 L34 12 L42 12" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <line x1="12" y1="22" x2="34" y2="22" stroke="#ffffff" stroke-width="0.8" opacity="0.55"/>
+      <line x1="12" y1="30" x2="34" y2="30" stroke="#ffffff" stroke-width="0.8" opacity="0.45"/>
+      <line x1="12" y1="38" x2="28" y2="38" stroke="#ffffff" stroke-width="0.8" opacity="0.4"/>
+      <line x1="12" y1="46" x2="32" y2="46" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+    </symbol>
+
+    <symbol id="brain" viewBox="0 0 100 80">
+      <path d="M50 8 C30 8 22 22 24 34 C12 38 14 56 28 60 C30 70 44 74 50 68 C56 74 70 70 72 60 C86 56 88 38 76 34 C78 22 70 8 50 8 Z"
+            fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <path d="M50 8 L50 68" stroke="#ffffff" stroke-width="0.8" opacity="0.4"/>
+      <path d="M36 24 C40 28 44 28 50 30" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.5"/>
+      <path d="M64 24 C60 28 56 28 50 30" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.5"/>
+      <path d="M30 44 C36 44 42 48 50 48" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.45"/>
+      <path d="M70 44 C64 44 58 48 50 48" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.45"/>
+      <circle cx="50" cy="38" r="3" fill="#ffffff" opacity="0.85"/>
+    </symbol>
+
+    <symbol id="cluster" viewBox="0 0 100 100">
+      <circle cx="50" cy="20" r="11" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+      <circle cx="22" cy="68" r="11" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+      <circle cx="78" cy="68" r="11" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+      <line x1="50" y1="31" x2="26" y2="58" stroke="#ffffff" stroke-width="1.2"/>
+      <line x1="50" y1="31" x2="74" y2="58" stroke="#ffffff" stroke-width="1.2"/>
+      <line x1="33" y1="68" x2="67" y2="68" stroke="#ffffff" stroke-width="1.2"/>
+      <circle cx="50" cy="20" r="3" fill="#ffffff"/>
+      <circle cx="22" cy="68" r="3" fill="#ffffff"/>
+      <circle cx="78" cy="68" r="3" fill="#ffffff"/>
+    </symbol>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  <rect width="100%" height="100%" fill="url(#spotlight)"/>
+  <rect width="100%" height="100%" fill="url(#spotlightRight)"/>
+  <rect width="100%" height="100%" fill="url(#circuit)" opacity="0.6"/>
+  <rect width="100%" height="100%" fill="url(#constellation)" opacity="0.7"/>
+
+  <!-- ambient floating glyphs -->
+  <g opacity="0.06" font-family="'SF Mono', monospace" font-size="11" fill="#ffffff">
+    <text x="80" y="80">POST /api/chat</text>
+    <text x="100" y="510">curl https://ollama.grumples.home</text>
+    <text x="1500" y="80">searxng.engine: duckduckgo</text>
+    <text x="1480" y="120">docling.convert(pdf)</text>
+    <text x="1560" y="495">model: qwen3.6:35b-a3b-coding</text>
+    <text x="60" y="540">launchctl load caddy.plist</text>
+    <text x="900" y="60">stream=true</text>
+    <text x="820" y="540">RAG · web_search · TLS</text>
+  </g>
+
+  <!-- ambient background icons -->
+  <g opacity="0.08">
+    <use href="#doc" x="1700" y="320" width="40" height="50"/>
+    <use href="#search" x="170" y="160" width="55" height="55"/>
+    <use href="#brain" x="1740" y="170" width="80" height="64"/>
+    <use href="#cluster" x="120" y="380" width="70" height="70"/>
+  </g>
+
+  <!-- connection lines (under main composition) -->
+  <g filter="url(#softGlow)">
+    <!-- Mac mini (center-left, ~480,300) to Open WebUI LXC (center, ~1100,250) -->
+    <path id="connInference" d="M650 300 C 800 280, 920 250, 1100 250"
+          fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#arrow)"/>
+    <!-- Open WebUI to SearXNG (right ~1480,250) -->
+    <path id="connSearch" d="M1230 285 C 1320 290, 1380 290, 1470 290"
+          fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#arrow)"/>
+    <!-- Mac mini to Open WebUI (docling/RAG, lower) -->
+    <path id="connDocling" d="M650 360 C 820 400, 940 410, 1100 360"
+          fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4"
+          stroke-dasharray="3 4"/>
+    <!-- return data from Open WebUI back to Mac mini (upper arc) -->
+    <path d="M1100 220 C 920 200, 800 220, 650 270"
+          fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.3"
+          stroke-dasharray="2 4"/>
+  </g>
+
+  <!-- traveling packets -->
+  <g>
+    <circle r="3" fill="#ffffff" opacity="0.85" filter="url(#glow)">
+      <animateMotion dur="4s" repeatCount="indefinite">
+        <mpath href="#connInference"/>
+      </animateMotion>
+    </circle>
+    <circle r="2.5" fill="#ffffff" opacity="0.7" filter="url(#glow)">
+      <animateMotion dur="3.2s" repeatCount="indefinite" begin="1s">
+        <mpath href="#connSearch"/>
+      </animateMotion>
+    </circle>
+    <circle r="2" fill="#ffffff" opacity="0.55" filter="url(#glow)">
+      <animateMotion dur="5s" repeatCount="indefinite" begin="0.5s">
+        <mpath href="#connDocling"/>
+      </animateMotion>
+    </circle>
+  </g>
+
+  <!-- Mac mini cluster (left side, focal element) -->
+  <g filter="url(#strongGlow)">
+    <use href="#macmini" x="380" y="270" width="270" height="165"/>
+    <!-- soft halo ring -->
+    <circle cx="515" cy="330" r="170" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.15">
+      <animate attributeName="r" values="160;172;160" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.1;0.22;0.1" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="515" cy="330" r="195" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+  </g>
+  <text x="515" y="465" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="11" opacity="0.55">[ local inference node ]</text>
+
+  <!-- Brain icon hovering near Mac mini = LLM -->
+  <g filter="url(#glow)" opacity="0.85">
+    <use href="#brain" x="270" y="240" width="100" height="80"/>
+    <text x="320" y="335" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10" opacity="0.5">ollama</text>
+  </g>
+
+  <!-- Docling document near Mac mini = RAG -->
+  <g filter="url(#glow)" opacity="0.85">
+    <use href="#doc" x="290" y="380" width="50" height="62"/>
+    <text x="315" y="455" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10" opacity="0.5">docling</text>
+  </g>
+
+  <!-- Open WebUI LXC (center-right) -->
+  <g filter="url(#glow)">
+    <use href="#lxc" x="1100" y="210" width="140" height="100"/>
+    <text x="1170" y="335" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="11" opacity="0.6">open-webui · lxc</text>
+  </g>
+
+  <!-- SearXNG LXC (right) -->
+  <g filter="url(#glow)">
+    <use href="#lxc" x="1470" y="245" width="120" height="86"/>
+    <use href="#search" x="1500" y="270" width="40" height="40" opacity="0.7"/>
+    <text x="1530" y="355" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="11" opacity="0.6">searxng · lxc</text>
+  </g>
+
+  <!-- Proxmox cluster glyph above LXCs -->
+  <g opacity="0.55" filter="url(#glow)">
+    <use href="#cluster" x="1280" y="100" width="80" height="80"/>
+    <text x="1320" y="200" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10" opacity="0.5">proxmox · frankencluster</text>
+  </g>
+
+  <!-- LED status pulses on LXCs -->
+  <g>
+    <circle cx="1115" cy="222" r="2.5" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1485" cy="256" r="2" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2.4s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+  </g>
+
+  <!-- Network divide annotation -->
+  <g opacity="0.18">
+    <line x1="870" y1="120" x2="870" y2="480" stroke="#ffffff" stroke-width="0.6" stroke-dasharray="4 6"/>
+    <text x="860" y="115" text-anchor="end" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10">mac · 192.168.86.x</text>
+    <text x="880" y="115" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10">proxmox · lxc</text>
+  </g>
+
+  <!-- Corner brackets -->
+  <g opacity="0.18">
+    <path d="M20 20 L20 70 M20 20 L70 20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 20 L1900 70 M1900 20 L1850 20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M20 580 L20 530 M20 580 L70 580" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 580 L1900 530 M1900 580 L1850 580" fill="none" stroke="#ffffff" stroke-width="2"/>
+  </g>
+
+  <!-- Bottom decorative lines -->
+  <g opacity="0.18">
+    <line x1="50" y1="560" x2="250" y2="560" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="260" cy="560" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1670" y1="560" x2="1870" y2="560" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="1660" cy="560" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <!-- Film grain -->
+  <rect width="100%" height="100%" fill="transparent" filter="url(#noise)"/>
+</svg>
