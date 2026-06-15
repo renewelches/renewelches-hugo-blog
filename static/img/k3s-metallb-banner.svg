@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080808"/>
+      <stop offset="45%" style="stop-color:#101010"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+
+    <radialGradient id="spotlight" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.05"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    </radialGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply" result="blend"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.10"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="blend" mode="overlay"/>
+    </filter>
+
+    <pattern id="circuit" patternUnits="userSpaceOnUse" width="100" height="100">
+      <line x1="0" y1="50" x2="40" y2="50" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <line x1="50" y1="0" x2="50" y2="40" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <circle cx="50" cy="50" r="3" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <line x1="60" y1="50" x2="100" y2="50" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+      <line x1="50" y1="60" x2="50" y2="100" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+
+    <pattern id="constellation" patternUnits="userSpaceOnUse" width="360" height="360">
+      <circle cx="60" cy="60" r="1" fill="#ffffff" opacity="0.22"/>
+      <circle cx="180" cy="90" r="1.2" fill="#ffffff" opacity="0.18"/>
+      <circle cx="300" cy="50" r="0.8" fill="#ffffff" opacity="0.16"/>
+      <circle cx="120" cy="210" r="1" fill="#ffffff" opacity="0.2"/>
+      <circle cx="240" cy="170" r="1.4" fill="#ffffff" opacity="0.22"/>
+      <circle cx="330" cy="260" r="1" fill="#ffffff" opacity="0.18"/>
+      <circle cx="70" cy="310" r="0.9" fill="#ffffff" opacity="0.18"/>
+    </pattern>
+
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ffffff" opacity="0.55"/>
+    </marker>
+
+    <!-- managed switch -->
+    <symbol id="switch" viewBox="0 0 220 70">
+      <rect x="4" y="10" width="212" height="50" rx="7" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+      <rect x="4" y="10" width="212" height="50" rx="7" fill="#ffffff" opacity="0.04"/>
+      <g fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.55">
+        <rect x="20" y="38" width="14" height="12" rx="1.5"/>
+        <rect x="40" y="38" width="14" height="12" rx="1.5"/>
+        <rect x="60" y="38" width="14" height="12" rx="1.5"/>
+        <rect x="80" y="38" width="14" height="12" rx="1.5"/>
+        <rect x="100" y="38" width="14" height="12" rx="1.5"/>
+        <rect x="120" y="38" width="14" height="12" rx="1.5"/>
+        <rect x="140" y="38" width="14" height="12" rx="1.5"/>
+        <rect x="160" y="38" width="14" height="12" rx="1.5"/>
+      </g>
+      <circle cx="30" cy="22" r="2" fill="#ffffff" opacity="0.8"/>
+      <circle cx="44" cy="22" r="2" fill="#ffffff" opacity="0.5"/>
+      <text x="186" y="27" fill="#ffffff" font-family="'SF Mono', monospace" font-size="9" opacity="0.5">2.5G</text>
+    </symbol>
+
+    <!-- proxmox node -->
+    <symbol id="node" viewBox="0 0 120 84">
+      <rect x="4" y="4" width="112" height="76" rx="6" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <line x1="4" y1="22" x2="116" y2="22" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+      <circle cx="14" cy="13" r="2" fill="#ffffff" opacity="0.6"/>
+      <circle cx="22" cy="13" r="2" fill="#ffffff" opacity="0.6"/>
+      <rect x="16" y="34" width="84" height="9" rx="2" fill="#ffffff" opacity="0.16"/>
+      <rect x="16" y="49" width="84" height="9" rx="2" fill="#ffffff" opacity="0.1"/>
+      <rect x="16" y="64" width="60" height="9" rx="2" fill="#ffffff" opacity="0.1"/>
+    </symbol>
+
+    <!-- k3s / kubernetes wheel -->
+    <symbol id="k8s" viewBox="0 0 100 100">
+      <polygon points="50,8 84,28 84,72 50,92 16,72 16,28" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <circle cx="50" cy="50" r="13" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+      <g stroke="#ffffff" stroke-width="1.3" opacity="0.7">
+        <line x1="50" y1="20" x2="50" y2="37"/>
+        <line x1="76" y1="36" x2="61" y2="45"/>
+        <line x1="70" y1="74" x2="58" y2="61"/>
+        <line x1="30" y1="74" x2="42" y2="61"/>
+        <line x1="24" y1="36" x2="39" y2="45"/>
+      </g>
+      <circle cx="50" cy="50" r="4" fill="#ffffff" opacity="0.85"/>
+    </symbol>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  <rect width="100%" height="100%" fill="url(#spotlight)"/>
+  <rect width="100%" height="100%" fill="url(#circuit)" opacity="0.6"/>
+  <rect width="100%" height="100%" fill="url(#constellation)" opacity="0.7"/>
+
+  <!-- ambient floating glyphs -->
+  <g opacity="0.06" font-family="'SF Mono', monospace" font-size="11" fill="#ffffff">
+    <text x="80" y="80">vlan 10 · tagged</text>
+    <text x="110" y="520">kubectl get svc -o wide</text>
+    <text x="1500" y="80">type: LoadBalancer</text>
+    <text x="1470" y="120">arp who-has 10.0.0.205</text>
+    <text x="1540" y="500">disable: servicelb</text>
+    <text x="60" y="548">trunk · pvid 1 + tag 10</text>
+    <text x="880" y="58">L2Advertisement</text>
+    <text x="820" y="548">EXTERNAL-IP 10.0.0.200</text>
+  </g>
+
+  <!-- VLAN trunk lines: nodes -> switch -->
+  <g filter="url(#softGlow)">
+    <path id="t1" d="M430 250 C 620 250, 720 290, 830 300" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5" marker-end="url(#arrow)"/>
+    <path id="t2" d="M430 320 C 620 320, 720 305, 830 305" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5" marker-end="url(#arrow)"/>
+    <path id="t3" d="M430 390 C 620 390, 720 320, 830 312" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5" marker-end="url(#arrow)"/>
+    <!-- switch -> MetalLB pool -->
+    <path id="t4" d="M1090 305 C 1230 305, 1320 300, 1430 300" fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.6" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- traveling packets -->
+  <g>
+    <circle r="3" fill="#ffffff" opacity="0.85" filter="url(#glow)">
+      <animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#t1"/></animateMotion>
+    </circle>
+    <circle r="2.5" fill="#ffffff" opacity="0.7" filter="url(#glow)">
+      <animateMotion dur="4.2s" repeatCount="indefinite" begin="0.8s"><mpath href="#t3"/></animateMotion>
+    </circle>
+    <circle r="3" fill="#ffffff" opacity="0.85" filter="url(#glow)">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="0.4s"><mpath href="#t4"/></animateMotion>
+    </circle>
+  </g>
+
+  <!-- 3 cluster nodes (left) -->
+  <g filter="url(#glow)">
+    <use href="#node" x="250" y="215" width="120" height="84"/>
+    <use href="#node" x="250" y="290" width="120" height="84"/>
+    <use href="#node" x="250" y="365" width="120" height="84"/>
+  </g>
+  <g>
+    <circle cx="264" cy="228" r="2.2" fill="#ffffff"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="264" cy="303" r="2.2" fill="#ffffff"><animate attributeName="opacity" values="1;0.3;1" dur="2.3s" repeatCount="indefinite" begin="0.4s"/></circle>
+    <circle cx="264" cy="378" r="2.2" fill="#ffffff"><animate attributeName="opacity" values="1;0.3;1" dur="2.6s" repeatCount="indefinite" begin="0.8s"/></circle>
+  </g>
+  <text x="310" y="475" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="11" opacity="0.55">[ k3s · 3-node proxmox cluster ]</text>
+
+  <!-- k8s wheel hovering over the nodes -->
+  <g filter="url(#glow)" opacity="0.85">
+    <use href="#k8s" x="120" y="250" width="96" height="96"/>
+    <text x="168" y="362" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10" opacity="0.5">k3s</text>
+  </g>
+
+  <!-- managed switch (center, focal) -->
+  <g filter="url(#strongGlow)">
+    <use href="#switch" x="830" y="270" width="260" height="83"/>
+    <circle cx="960" cy="305" r="120" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.13">
+      <animate attributeName="r" values="112;124;112" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.08;0.2;0.08" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <text x="960" y="385" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="11" opacity="0.6">managed 2.5G · VLAN 1 + VLAN 10</text>
+
+  <!-- MetalLB pool (right) -->
+  <g filter="url(#glow)">
+    <rect x="1430" y="240" width="240" height="130" rx="8" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+    <rect x="1430" y="240" width="240" height="28" rx="8" fill="#ffffff" opacity="0.06"/>
+    <text x="1550" y="259" text-anchor="middle" fill="#ffffff" font-family="'SF Mono', monospace" font-size="11" opacity="0.7">MetalLB · L2 pool</text>
+    <g font-family="'SF Mono', monospace" font-size="11" fill="#ffffff">
+      <rect x="1448" y="284" width="92" height="20" rx="4" fill="#ffffff" opacity="0.14"/>
+      <text x="1455" y="298" opacity="0.85">10.0.0.200</text>
+      <rect x="1552" y="284" width="100" height="20" rx="4" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.5"/>
+      <text x="1559" y="298" opacity="0.55">10.0.0.201</text>
+      <rect x="1448" y="312" width="92" height="20" rx="4" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.5"/>
+      <text x="1455" y="326" opacity="0.55">10.0.0.202</text>
+      <text x="1559" y="326" opacity="0.4">…</text>
+      <text x="1455" y="354" opacity="0.4">→ 10.0.0.220</text>
+    </g>
+  </g>
+  <g>
+    <circle cx="1444" cy="254" r="2.4" fill="#ffffff"><animate attributeName="opacity" values="1;0.3;1" dur="2.2s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- VLAN divide annotation -->
+  <g opacity="0.16">
+    <line x1="700" y1="120" x2="700" y2="470" stroke="#ffffff" stroke-width="0.6" stroke-dasharray="4 6"/>
+    <text x="690" y="115" text-anchor="end" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10">home · 192.168.1.x</text>
+    <text x="710" y="115" fill="#ffffff" font-family="'SF Mono', monospace" font-size="10">lab · 10.0.0.x (vlan 10)</text>
+  </g>
+
+  <!-- Corner brackets -->
+  <g opacity="0.18">
+    <path d="M20 20 L20 70 M20 20 L70 20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 20 L1900 70 M1900 20 L1850 20" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M20 580 L20 530 M20 580 L70 580" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M1900 580 L1900 530 M1900 580 L1850 580" fill="none" stroke="#ffffff" stroke-width="2"/>
+  </g>
+
+  <!-- Bottom decorative lines -->
+  <g opacity="0.18">
+    <line x1="50" y1="560" x2="250" y2="560" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="260" cy="560" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1670" y1="560" x2="1870" y2="560" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="1660" cy="560" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <!-- Film grain -->
+  <rect width="100%" height="100%" fill="transparent" filter="url(#noise)"/>
+</svg>
