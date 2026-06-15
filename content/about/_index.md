@@ -39,7 +39,7 @@ I don't post on a schedule. I write when I've solved something worth documenting
 
 My focus is on the intersection of platform engineering, cloud architecture, and operational excellence:
 
-- Multi-cloud architecture (AWS, Azure, GCP)
+- Multi-cloud architecture (AWS, GCP, Azure)
 - Kubernetes and cloud-native infrastructure
 - SRE: SLI/SLO frameworks, incident management, on-call operations
 - FinOps and infrastructure cost optimization
@@ -48,6 +48,16 @@ My focus is on the intersection of platform engineering, cloud architecture, and
 - AI-assisted development workflows and LLM tooling
 
 I write Go, know my way around Python and I am still thinking Java, and have a soft spot for infrastructure that explains itself.
+
+Lately I've been building on the AI-native side in the open — an [MCP server](https://github.com/renewelches/proxmox-stdio-mcp) that wires AI assistants into real infrastructure, RAG pipelines, self-hosted LLMs — and folding AI-assisted workflows into how I build and operate systems.
+
+---
+
+## What I'm Looking For
+
+I'm currently open to my next role. I'm interested in two shapes of it: **engineering leadership** — managing a platform or infrastructure team — or a **Staff/Principal platform engineering** seat as the senior technical anchor. At an earlier-stage company, those are usually the same person: close to the technology, shaping how the team builds.
+
+If you're building something interesting in platform engineering, cloud infrastructure, or AI-native systems, I'd genuinely like to hear about it.
 
 ---
 
